@@ -25,6 +25,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
+import android.media.Ringtone;
+import android.media.RingtoneManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.util.Log;
@@ -327,6 +330,7 @@ public class DeviceControlActivity extends Activity {
     private void clickButton(String data){
         if(data.contains("01")){
             ((TextView)findViewById(R.id.txt_2)).setText("HAI PREMUTO IL PULSANTE");
+
         } else if(data.contains("00")){
             ((TextView)findViewById(R.id.txt_2)).setText("SPENTO");
         } else{
@@ -334,4 +338,6 @@ public class DeviceControlActivity extends Activity {
         }
 
     }
+
+
 }
