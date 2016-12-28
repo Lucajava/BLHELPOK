@@ -241,6 +241,9 @@ public class DeviceScanActivity extends ListActivity {
                     if (device.getAddress().contains("7C:66:9D:7D:43:CE")) {
 
                         viewHolder.deviceAddress.setText("Device di Luca Ulizi");
+                    } else if (device.getAddress().contains("7C:66:9D:7D:3F:7B")) {
+
+                        viewHolder.deviceAddress.setText("Device di Alessio Ciuff");
                     }
                 }
 
