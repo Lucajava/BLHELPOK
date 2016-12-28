@@ -344,14 +344,14 @@ public class BluetoothLeService extends Service {
             return;
         }
         /*check if the service is available on the device*/
-        BluetoothGattService mCustomService = mBluetoothGatt.getService(UUID.fromString("00001820-0000-1000-8000-00805f9b34fb"));
+        BluetoothGattService mCustomService = mBluetoothGatt.getService(UUID.fromString("00001802-0000-1000-8000-00805f9b34fb"));
         if(mCustomService == null){
             Log.w(TAG, "Custom BLE Service not found");
             return;
         }
         /*get the read characteristic from the service*/
         BluetoothGattCharacteristic mWriteCharacteristic = mCustomService.getCharacteristic(UUID.fromString("00002A06-0000-1000-8000-00805f9b34fb"));
-        mWriteCharacteristic.setValue(1,android.bluetooth.BluetoothGattCharacteristic.FORMAT_UINT8,0);
+        mWriteCharacteristic.setValue(value,android.bluetooth.BluetoothGattCharacteristic.FORMAT_UINT8,0);
         if(mBluetoothGatt.writeCharacteristic(mWriteCharacteristic) == false){
             Log.w(TAG, "Failed to write characteristic");
         }

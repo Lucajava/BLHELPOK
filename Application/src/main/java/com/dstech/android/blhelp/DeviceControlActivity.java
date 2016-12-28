@@ -76,12 +76,15 @@ public class DeviceControlActivity extends Activity {
         @Override
         public void onServiceConnected(ComponentName componentName, IBinder service) {
             mBluetoothLeService = ((BluetoothLeService.LocalBinder) service).getService();
+
             if (!mBluetoothLeService.initialize()) {
                 Log.e(TAG, "Unable to initialize Bluetooth");
                 finish();
+
             }
             // Automatically connects to the device upon successful start-up initialization.
             mBluetoothLeService.connect(mDeviceAddress);
+            mBluetoothLeService.readCustomCharacteristic();
         }
 
         @Override
@@ -103,6 +106,7 @@ public class DeviceControlActivity extends Activity {
             if (BluetoothLeService.ACTION_GATT_CONNECTED.equals(action)) {
                 mConnected = true;
                 updateConnectionState(R.string.connected);
+                mBluetoothLeService.readCustomCharacteristic();
                 invalidateOptionsMenu();
             } else if (BluetoothLeService.ACTION_GATT_DISCONNECTED.equals(action)) {
                 mConnected = false;
@@ -113,6 +117,7 @@ public class DeviceControlActivity extends Activity {
                 // Show all the supported services and characteristics on the user interface.
                 //displayGattServices(mBluetoothLeService.getSupportedGattServices());
             } else if (BluetoothLeService.ACTION_DATA_AVAILABLE.equals(action)) {
+
                 data = intent.getStringExtra(BluetoothLeService.EXTRA_DATA);
                 displayData(data);
                 clickButton(data);
@@ -319,7 +324,7 @@ public class DeviceControlActivity extends Activity {
 
     public void onClickWrite(View v){
         if(mBluetoothLeService != null) {
-            mBluetoothLeService.writeCustomCharacteristic(0xAA);
+            mBluetoothLeService.writeCustomCharacteristic(0x02);
         }
     }
 
@@ -336,12 +341,14 @@ public class DeviceControlActivity extends Activity {
         return new CountDownTimer(10000, 500) {
             @Override
             public void onTick(long millisUntilFinished) {
-                ((TextView)findViewById(R.id.txt_timer)).setText("seconds remaining: " + millisUntilFinished / 1000);
+              //  ((TextView)findViewById(R.id.txt_timer)).setText("seconds remaining: " + millisUntilFinished / 1000);
                 timerInCorso = true;
             }
 
             public void onFinish() {
-                ((TextView)findViewById(R.id.txt_timer2)).setText("done!");
+                ((TextView)findViewById(R.id.txt_timer2)).setText("HAI PREMUTO 10 SECONDI");
+                Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
+                startActivity(intent);
                 timerInCorso = false;
             }
         };
@@ -350,6 +357,9 @@ public class DeviceControlActivity extends Activity {
     private void clickButton(final String data){
         if(data.contains("01")){
             ((TextView)findViewById(R.id.txt_2)).setText("HAI PREMUTO IL PULSANTE");
+            Uri notification = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+            Ringtone r = RingtoneManager.getRingtone(getApplicationContext(), notification);
+            r.play();
             if(!timerInCorso){
                 timer.start();
             }
