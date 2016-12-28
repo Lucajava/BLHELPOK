@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/Users/Luca/Desktop/BLE/BLHELP/Application/build/intermediates/res/merged/debug/menu/gatt_services.xml",
+        "source": "/Users/Luca/Desktop/BLE/BLHELP/Application/src/main/res/menu/gatt_services.xml"
+    },
+    {
+        "merged": "/Users/Luca/Desktop/BLE/BLHELP/Application/build/intermediates/res/merged/debug/menu/main.xml",
+        "source": "/Users/Luca/Desktop/BLE/BLHELP/Application/src/main/res/menu/main.xml"
+    }
+]
