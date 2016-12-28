@@ -26,6 +26,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.os.IBinder;
 import android.util.Log;
 import android.view.Menu;
@@ -61,6 +62,7 @@ public class DeviceControlActivity extends Activity {
             new ArrayList<ArrayList<BluetoothGattCharacteristic>>();
     private boolean mConnected = false;
     private BluetoothGattCharacteristic mNotifyCharacteristic;
+    private String data;
 
     private final String LIST_NAME = "NAME";
     private final String LIST_UUID = "UUID";
@@ -108,7 +110,7 @@ public class DeviceControlActivity extends Activity {
                 // Show all the supported services and characteristics on the user interface.
                 //displayGattServices(mBluetoothLeService.getSupportedGattServices());
             } else if (BluetoothLeService.ACTION_DATA_AVAILABLE.equals(action)) {
-                String data = intent.getStringExtra(BluetoothLeService.EXTRA_DATA);
+                data = intent.getStringExtra(BluetoothLeService.EXTRA_DATA);
                 displayData(data);
                 clickButton(data);
             }
@@ -323,12 +325,39 @@ public class DeviceControlActivity extends Activity {
             mBluetoothLeService.readCustomCharacteristic();
         }
     }
+    private boolean timerInCorso = false;
+    private CountDownTimer timer = resetCounTimer();
 
-    private void clickButton(String data){
+    private CountDownTimer resetCounTimer(){
+        timerInCorso=false;
+        return new CountDownTimer(10000, 500) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                ((TextView)findViewById(R.id.txt_timer)).setText("seconds remaining: " + millisUntilFinished / 1000);
+                timerInCorso = true;
+            }
+
+            public void onFinish() {
+                ((TextView)findViewById(R.id.txt_timer2)).setText("done!");
+                timerInCorso = false;
+            }
+        };
+    }
+
+    private void clickButton(final String data){
         if(data.contains("01")){
             ((TextView)findViewById(R.id.txt_2)).setText("HAI PREMUTO IL PULSANTE");
+            if(!timerInCorso){
+                timer.start();
+            }
+
         } else if(data.contains("00")){
             ((TextView)findViewById(R.id.txt_2)).setText("SPENTO");
+            if(timerInCorso){
+                timer.cancel();
+                timer = resetCounTimer();
+
+            }
         } else{
             Log.d("Altro messaggio",data);
         }
