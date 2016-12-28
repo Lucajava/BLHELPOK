@@ -31,4 +31,5 @@
         android:textSize="30dp"
         android:id="@+id/txt_2" />
 
+
 </LinearLayout>
