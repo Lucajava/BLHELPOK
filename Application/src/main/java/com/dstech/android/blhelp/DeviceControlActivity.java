@@ -108,7 +108,9 @@ public class DeviceControlActivity extends Activity {
                 // Show all the supported services and characteristics on the user interface.
                 //displayGattServices(mBluetoothLeService.getSupportedGattServices());
             } else if (BluetoothLeService.ACTION_DATA_AVAILABLE.equals(action)) {
-                displayData(intent.getStringExtra(BluetoothLeService.EXTRA_DATA));
+                String data = intent.getStringExtra(BluetoothLeService.EXTRA_DATA);
+                displayData(data);
+                clickButton(data);
             }
         }
     };
@@ -319,5 +321,16 @@ public class DeviceControlActivity extends Activity {
         if(mBluetoothLeService != null) {
             mBluetoothLeService.readCustomCharacteristic();
         }
+    }
+
+    private void clickButton(String data){
+        if(data.contains("01")){
+            ((TextView)findViewById(R.id.txt_2)).setText("HAI PREMUTO IL PULSANTE");
+        } else if(data.contains("00")){
+            ((TextView)findViewById(R.id.txt_2)).setText("SPENTO");
+        } else{
+            Log.d("Altro messaggio",data);
+        }
+
     }
 }
