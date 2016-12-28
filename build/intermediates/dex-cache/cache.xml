@@ -3,57 +3,57 @@
 
     <item
         is-multidex="false"
-        jar="/Users/Luca/Desktop/BLE/BLHELP/Application/build/intermediates/exploded-aar/com.android.support/support-v13/23.0.0/jars/classes.jar"
+        jar="C:\Users\basil\AndroidStudioProjects\BLHELPOK\Application\build\intermediates\exploded-aar\com.android.support\support-v13\23.0.0\jars\classes.jar"
         jumboMode="false"
         optimize="true"
         revision="23.0.0"
         sha1="bb0ac3f3ee2d71854501cc28e52cc84a20209b41">
-        <dex dex="/Users/Luca/Desktop/BLE/BLHELP/Application/build/intermediates/pre-dexed/debug/com.android.support-support-v13-23.0.0_cc76d47d5048a797f2dc007eca17e9aa9fcd9ef2.jar" />
+        <dex dex="C:\Users\basil\AndroidStudioProjects\BLHELPOK\Application\build\intermediates\pre-dexed\debug\com.android.support-support-v13-23.0.0_0f4ca8df49596af2092fa7911ffbdd22cdda1173.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/Users/Luca/Desktop/BLE/BLHELP/Application/build/intermediates/exploded-aar/com.android.support/support-v13/23.0.0/jars/libs/internal_impl-23.0.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.0"
-        sha1="5d4bccb885c8a89d066ecb6c4addb553a99a79a2">
-        <dex dex="/Users/Luca/Desktop/BLE/BLHELP/Application/build/intermediates/pre-dexed/debug/internal_impl-23.0.0_9d119c8332cc81a2d039b4998aa3599f71def701.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/Luca/Desktop/BLE/BLHELP/Application/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.0/jars/libs/internal_impl-23.0.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.0"
-        sha1="8bd336eeae661e8311330284897ee07f8ebaa297">
-        <dex dex="/Users/Luca/Desktop/BLE/BLHELP/Application/build/intermediates/pre-dexed/debug/internal_impl-23.0.0_4b9233075be38a1b76847e32886a9810d1ac9d6c.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/Luca/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/23.0.0/support-annotations-23.0.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.0"
-        sha1="990e7f98a7bad86a40b1f0bcfeb039023afd0839">
-        <dex dex="/Users/Luca/Desktop/BLE/BLHELP/Application/build/intermediates/pre-dexed/debug/support-annotations-23.0.0_d540abe60e5f212c086a24d39dc68078f1358d0b.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/Luca/Desktop/BLE/BLHELP/Application/build/intermediates/exploded-aar/com.android.support/cardview-v7/23.0.0/jars/classes.jar"
+        jar="C:\Users\basil\AndroidStudioProjects\BLHELPOK\Application\build\intermediates\exploded-aar\com.android.support\cardview-v7\23.0.0\jars\classes.jar"
         jumboMode="false"
         optimize="true"
         revision="23.0.0"
         sha1="1ccbc26be2c465c622a48310e8092241b01abe80">
-        <dex dex="/Users/Luca/Desktop/BLE/BLHELP/Application/build/intermediates/pre-dexed/debug/com.android.support-cardview-v7-23.0.0_477185266366704c44d7fd6aa072ac077112bb16.jar" />
+        <dex dex="C:\Users\basil\AndroidStudioProjects\BLHELPOK\Application\build\intermediates\pre-dexed\debug\com.android.support-cardview-v7-23.0.0_8d132ce97bf6cf78879e1838ce351fdaaf357ba7.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/Users/Luca/Desktop/BLE/BLHELP/Application/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.0/jars/classes.jar"
+        jar="C:\Users\basil\AndroidStudioProjects\BLHELPOK\Application\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.0\jars\libs\internal_impl-23.0.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.0"
+        sha1="8bd336eeae661e8311330284897ee07f8ebaa297">
+        <dex dex="C:\Users\basil\AndroidStudioProjects\BLHELPOK\Application\build\intermediates\pre-dexed\debug\internal_impl-23.0.0_12a7df2bb2254b338442681cb36d72b7c67a51bd.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\basil\AndroidStudioProjects\BLHELPOK\Application\build\intermediates\exploded-aar\com.android.support\support-v13\23.0.0\jars\libs\internal_impl-23.0.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.0"
+        sha1="5d4bccb885c8a89d066ecb6c4addb553a99a79a2">
+        <dex dex="C:\Users\basil\AndroidStudioProjects\BLHELPOK\Application\build\intermediates\pre-dexed\debug\internal_impl-23.0.0_3db17c687706e7cdff770abaadba98e8bde5fea0.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\basil\AndroidStudioProjects\BLHELPOK\Application\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.0\jars\classes.jar"
         jumboMode="false"
         optimize="true"
         revision="23.0.0"
         sha1="8413c27b45b7fe61dca4a98159f65e2cee215f5a">
-        <dex dex="/Users/Luca/Desktop/BLE/BLHELP/Application/build/intermediates/pre-dexed/debug/com.android.support-support-v4-23.0.0_be2d86f7f05ee8dfb982da710ea26b756313e11f.jar" />
+        <dex dex="C:\Users\basil\AndroidStudioProjects\BLHELPOK\Application\build\intermediates\pre-dexed\debug\com.android.support-support-v4-23.0.0_ca9676e07d2cf04b1d3b1c69c1d161484e15f603.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\basil\AppData\Local\Android\sdk1\extras\android\m2repository\com\android\support\support-annotations\23.0.0\support-annotations-23.0.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.0"
+        sha1="990e7f98a7bad86a40b1f0bcfeb039023afd0839">
+        <dex dex="C:\Users\basil\AndroidStudioProjects\BLHELPOK\Application\build\intermediates\pre-dexed\debug\support-annotations-23.0.0_0da5668acb250fc546a4f6e9a69d25d3ed78bb91.jar" />
     </item>
 
 </items>

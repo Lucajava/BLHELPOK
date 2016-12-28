@@ -1,18 +1,18 @@
 [
     {
-        "merged": "/Users/Luca/Desktop/BLE/BLHELP/Application/build/intermediates/res/merged/debug/layout/listitem_device.xml",
-        "source": "/Users/Luca/Desktop/BLE/BLHELP/Application/src/main/res/layout/listitem_device.xml"
+        "merged": "C:\\Users\\basil\\AndroidStudioProjects\\BLHELPOK\\Application\\build\\intermediates\\res\\merged\\debug\\layout\\gatt_services_characteristics.xml",
+        "source": "C:\\Users\\basil\\AndroidStudioProjects\\BLHELPOK\\Application\\src\\main\\res\\layout\\gatt_services_characteristics.xml"
     },
     {
-        "merged": "/Users/Luca/Desktop/BLE/BLHELP/Application/build/intermediates/res/merged/debug/layout/actionbar_indeterminate_progress.xml",
-        "source": "/Users/Luca/Desktop/BLE/BLHELP/Application/src/main/res/layout/actionbar_indeterminate_progress.xml"
+        "merged": "C:\\Users\\basil\\AndroidStudioProjects\\BLHELPOK\\Application\\build\\intermediates\\res\\merged\\debug\\layout\\actionbar_indeterminate_progress.xml",
+        "source": "C:\\Users\\basil\\AndroidStudioProjects\\BLHELPOK\\Application\\src\\main\\res\\layout\\actionbar_indeterminate_progress.xml"
     },
     {
-        "merged": "/Users/Luca/Desktop/BLE/BLHELP/Application/build/intermediates/res/merged/debug/layout/button_control.xml",
-        "source": "/Users/Luca/Desktop/BLE/BLHELP/Application/src/main/res/layout/button_control.xml"
+        "merged": "C:\\Users\\basil\\AndroidStudioProjects\\BLHELPOK\\Application\\build\\intermediates\\res\\merged\\debug\\layout\\button_control.xml",
+        "source": "C:\\Users\\basil\\AndroidStudioProjects\\BLHELPOK\\Application\\src\\main\\res\\layout\\button_control.xml"
     },
     {
-        "merged": "/Users/Luca/Desktop/BLE/BLHELP/Application/build/intermediates/res/merged/debug/layout/gatt_services_characteristics.xml",
-        "source": "/Users/Luca/Desktop/BLE/BLHELP/Application/src/main/res/layout/gatt_services_characteristics.xml"
+        "merged": "C:\\Users\\basil\\AndroidStudioProjects\\BLHELPOK\\Application\\build\\intermediates\\res\\merged\\debug\\layout\\listitem_device.xml",
+        "source": "C:\\Users\\basil\\AndroidStudioProjects\\BLHELPOK\\Application\\src\\main\\res\\layout\\listitem_device.xml"
     }
 ]
