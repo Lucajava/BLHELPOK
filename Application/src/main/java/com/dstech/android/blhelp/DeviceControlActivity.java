@@ -36,6 +36,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ExpandableListView;
 import android.widget.SimpleExpandableListAdapter;
 import android.widget.TextView;
@@ -184,7 +185,7 @@ public class DeviceControlActivity extends Activity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch(item.getItemId()) {
+        switch (item.getItemId()) {
             case R.id.menu_connect:
                 mBluetoothLeService.connect(mDeviceAddress);
                 return true;
@@ -261,12 +262,12 @@ public class DeviceControlActivity extends Activity {
                 this,
                 gattServiceData,
                 android.R.layout.simple_expandable_list_item_2,
-                new String[] {LIST_NAME, LIST_UUID},
-                new int[] { android.R.id.text1, android.R.id.text2 },
+                new String[]{LIST_NAME, LIST_UUID},
+                new int[]{android.R.id.text1, android.R.id.text2},
                 gattCharacteristicData,
                 android.R.layout.simple_expandable_list_item_2,
-                new String[] {LIST_NAME, LIST_UUID},
-                new int[] { android.R.id.text1, android.R.id.text2 }
+                new String[]{LIST_NAME, LIST_UUID},
+                new int[]{android.R.id.text1, android.R.id.text2}
         );
         mGattServicesList.setAdapter(gattServiceAdapter);
     }
@@ -280,77 +281,113 @@ public class DeviceControlActivity extends Activity {
         return intentFilter;
     }
 
-    public void onClickWriteSound(View v){
-        if(mBluetoothLeService != null) {
+    public void onClickWriteSound(View v) {
+        if (mBluetoothLeService != null) {
             mBluetoothLeService.writeCustomCharacteristic(0x02);
+            //findViewById(R.id.buttonSound).setEnabled(false);
+            ((Button) findViewById(R.id.buttonSound)).setText("Wait");
+
+            /*timer = new CountDownTimer(2000, 500) {
+                @Override
+                public void onTick(long millisUntilFinished) {}
+
+                @Override
+                public void onFinish() {
+                    mBluetoothLeService.writeCustomCharacteristic(0x00);
+                    ((Button)findViewById(R.id.buttonSound)).setText("Sound");
+                }
+            };
+            timer.start();*/
+
+            //findViewById(R.id.buttonSound).setEnabled(true);
+
         }
     }
 
-    public void onClickWriteLight(View v){
-        if(mBluetoothLeService != null) {
+    public void onClickWriteLight(View v) {
+        if (mBluetoothLeService != null) {
             mBluetoothLeService.writeCustomCharacteristic(0x01);
+            ((Button) findViewById(R.id.buttonLight)).setText("Wait");
+
+            /*timer = new CountDownTimer(2000, 500) {
+                @Override
+                public void onTick(long millisUntilFinished) {}
+
+                @Override
+                public void onFinish() {
+                    mBluetoothLeService.writeCustomCharacteristic(0x00);
+                    ((Button)findViewById(R.id.buttonLight)).setText("Light");
+                }
+            };
+            timer.start();*/
         }
     }
 
-    public void onClickRead(View v){
-        if(mBluetoothLeService != null) {
+    public void onClickRead(View v) {
+        if (mBluetoothLeService != null) {
             mBluetoothLeService.readCustomCharacteristic();
         }
     }
+
     private boolean timerInCorso = false;
-    private CountDownTimer timer = resetCounTimer();
-    private int counter =0;
-    private CountDownTimer resetCounTimer(){
-        timerInCorso=false;
-        return new CountDownTimer(10000, 500) {
+    private CountDownTimer timer = resetCounTimer(10000);
+    private int counter = 0;
+    private Uri notification = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+    private Uri suoneria = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALL);
+
+
+    private CountDownTimer resetCounTimer(long millisInFuture) {
+        timerInCorso = false;
+        return new CountDownTimer(millisInFuture, 500) {
             @Override
             public void onTick(long millisUntilFinished) {
-              //  ((TextView)findViewById(R.id.txt_timer)).setText("seconds remaining: " + millisUntilFinished / 1000);
+                //  ((TextView)findViewById(R.id.txt_timer)).setText("seconds remaining: " + millisUntilFinished / 1000);
                 timerInCorso = true;
             }
 
             public void onFinish() {
 
-                ((TextView)findViewById(R.id.txt_timer2)).setText("HAI PREMUTO 10 SECONDI");
-                Uri notification = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALL);
-                final Ringtone r = RingtoneManager.getRingtone(getApplicationContext(), notification);
+                ((TextView) findViewById(R.id.txt_timer2)).setText("HAI PREMUTO 10 SECONDI");
 
+                final Ringtone r = RingtoneManager.getRingtone(getApplicationContext(), suoneria);
 
-                    r.play();
-               final Handler handler = new Handler();
+                r.play();
+                final Handler handler = new Handler();
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
                         r.stop();
                     }
-                }, 10);
-
-
+                }, 1000);
 
                 timerInCorso = false;
             }
         };
     }
 
-    private void clickButton(final String data){
-        if(data.contains("01")){
-            ((TextView)findViewById(R.id.txt_2)).setText("HAI PREMUTO IL PULSANTE");
-           Uri notification = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
-            Ringtone r = RingtoneManager.getRingtone(getApplicationContext(), notification);
-            r.play();
-            if(!timerInCorso){
+    private void clickButton(final String data) {
+        if (data.contains("01")) {
+
+            ((TextView) findViewById(R.id.txt_2)).setText("HAI PREMUTO IL PULSANTE");
+            if(counter==0){
+                Ringtone r = RingtoneManager.getRingtone(getApplicationContext(), notification);
+                r.play();
+            }
+
+            if (!timerInCorso) {
                 timer.start();
             }
+            counter = 1;
 
-        } else if(data.contains("00")){
-            ((TextView)findViewById(R.id.txt_2)).setText("SPENTO");
-            if(timerInCorso){
+        } else if (data.contains("00")) {
+            counter = 0;
+            ((TextView) findViewById(R.id.txt_2)).setText("SPENTO");
+            if (timerInCorso) {
                 timer.cancel();
-                timer = resetCounTimer();
-
+                timer = resetCounTimer(10000);
             }
-        } else{
-            Log.d("Altro messaggio",data);
+        } else {
+            Log.d("Altro messaggio", data);
         }
 
     }

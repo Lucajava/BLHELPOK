@@ -14,14 +14,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Sound"
-        android:id="@+id/button2"
+        android:id="@+id/buttonSound"
         android:onClick="onClickWriteSound" />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Light"
-        android:id="@+id/button3"
+        android:id="@+id/buttonLight"
         android:onClick="onClickWriteLight" />
 
     <TextView
