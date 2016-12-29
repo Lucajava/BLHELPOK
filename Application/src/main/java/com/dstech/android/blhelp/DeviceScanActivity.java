@@ -269,7 +269,7 @@ public class DeviceScanActivity extends ListActivity {
                     viewHolder.deviceAddress.setText(device.getAddress());
                 }
 
-            if(deviceAddress!=null && device.getAddress().contains(deviceAddress)){
+            if (deviceAddress != null && device.getAddress().contains(deviceAddress)) {
                 final Intent intent = new Intent(DeviceScanActivity.this, DeviceControlActivity.class);
                 intent.putExtra(DeviceControlActivity.EXTRAS_DEVICE_NAME, device.getName());
                 intent.putExtra(DeviceControlActivity.EXTRAS_DEVICE_ADDRESS, device.getAddress());
@@ -300,17 +300,10 @@ public class DeviceScanActivity extends ListActivity {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            //if (deviceAddress == null) {
-                                if (device.getName() != null && device.getName().contains("Consmart")) {
-                                    mLeDeviceListAdapter.addDevice(device);
-                                    mLeDeviceListAdapter.notifyDataSetChanged();
-                                }
-                            /*} else {
-                                if (device.getAddress().contains(deviceAddress)) {
-                                    mLeDeviceListAdapter.addDevice(device);
-                                    mLeDeviceListAdapter.notifyDataSetChanged();
-                                }
-                            }*/
+                            if (device.getName() != null && device.getName().contains("Consmart")) {
+                                mLeDeviceListAdapter.addDevice(device);
+                                mLeDeviceListAdapter.notifyDataSetChanged();
+                            }
                         }
                     });
                 }

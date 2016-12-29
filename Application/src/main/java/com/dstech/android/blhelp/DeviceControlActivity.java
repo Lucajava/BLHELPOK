@@ -88,16 +88,6 @@ public class DeviceControlActivity extends Activity {
             // Automatically connects to the device upon successful start-up initialization.
             mBluetoothLeService.connect(mDeviceAddress);
             Log.d(TAG, "Tentativo nell'onServiceConnected dell'mServiceConnection");
-            final Handler handler = new Handler();
-            handler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    if (mBluetoothLeService != null) {
-                        mBluetoothLeService.readCustomCharacteristic();
-                    }
-                }
-            }, 1000);
-            //mBluetoothLeService.readCustomCharacteristic();
         }
 
         @Override
@@ -121,20 +111,8 @@ public class DeviceControlActivity extends Activity {
                 updateConnectionState(R.string.connected);
                 invalidateOptionsMenu();
 
-                if(mBluetoothLeService!=null){
-                    mBluetoothLeService.readCustomCharacteristic();
-                }
-
                 Log.d(TAG, "Tentativo nell'OnReceive dell'mGattUpdateReceiver");
-                final Handler handler = new Handler();
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        if (mBluetoothLeService != null) {
-                            mBluetoothLeService.readCustomCharacteristic();
-                        }
-                    }
-                }, 1000);
+
             } else if (BluetoothLeService.ACTION_GATT_DISCONNECTED.equals(action)) {
                 mConnected = false;
                 updateConnectionState(R.string.disconnected);
@@ -172,15 +150,27 @@ public class DeviceControlActivity extends Activity {
         Intent gattServiceIntent = new Intent(this, BluetoothLeService.class);
         bindService(gattServiceIntent, mServiceConnection, BIND_AUTO_CREATE);
 
-        final Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
+        (new Thread(new Runnable() {
+
             @Override
             public void run() {
-                if (mBluetoothLeService != null) {
-                    mBluetoothLeService.readCustomCharacteristic();
-                }
+                while (!Thread.interrupted())
+                    try {
+                        Thread.sleep(1000);
+                        runOnUiThread(new Runnable() // start actions in UI thread
+                        {
+                            @Override
+                            public void run() {
+                                if (mBluetoothLeService != null) {
+                                    mBluetoothLeService.readCustomCharacteristic();
+                                }// this action have to be in UI thread
+                            }
+                        });
+                    } catch (InterruptedException e) {
+                        // ooops
+                    }
             }
-        }, 1000);
+        })).start();
 
         registerReceiver(mGattUpdateReceiver, makeGattUpdateIntentFilter());
         if (mBluetoothLeService != null) {
@@ -302,7 +292,7 @@ public class DeviceControlActivity extends Activity {
         if (data.contains("01")) {
 
             ((TextView) findViewById(R.id.txt_2)).setText("HAI PREMUTO IL PULSANTE");
-            if(counter==0){
+            if (counter == 0) {
                 Ringtone r = RingtoneManager.getRingtone(getApplicationContext(), notification);
                 r.play();
             }
@@ -325,7 +315,7 @@ public class DeviceControlActivity extends Activity {
 
     }
 
-    public void onClickReset(){
+    public void onClickReset() {
 
         DeviceScanActivity.setDefaults(DeviceScanActivity.DEVICE_ADDRESS, null, this);
     }
