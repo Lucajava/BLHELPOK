@@ -314,14 +314,12 @@ public class DeviceControlActivity extends Activity {
     public void onClickWriteSound(View v) {
         if (mBluetoothLeService != null) {
             mBluetoothLeService.writeCustomCharacteristic(0x02);
-            ((Button) findViewById(R.id.buttonSound)).setText("Wait");
         }
     }
 
     public void onClickWriteLight(View v) {
         if (mBluetoothLeService != null) {
             mBluetoothLeService.writeCustomCharacteristic(0x01);
-            ((Button) findViewById(R.id.buttonLight)).setText("Wait");
         }
     }
 
