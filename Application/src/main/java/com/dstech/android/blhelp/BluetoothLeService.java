@@ -41,7 +41,7 @@ import java.util.UUID;
  */
 public class BluetoothLeService extends Service {
     //private final static String TAG = BluetoothLeService.class.getSimpleName();
-    private final static String TAG = "BLUETIITHLESERVICE";
+    private final static String TAG = "BLUETOOTHLESERVICE";
 
     private BluetoothManager mBluetoothManager;
     private BluetoothAdapter mBluetoothAdapter;
@@ -325,7 +325,7 @@ public class BluetoothLeService extends Service {
         }
         /*check if the service is available on the device*/
         BluetoothGattService mCustomService = mBluetoothGatt.getService(UUID.fromString("0000ffe0-0000-1000-8000-00805f9b34fb"));
-        Log.d(TAG,"button service");
+        Log.d(TAG,"tentativo readCustomCharacteristic()");
         if(mCustomService == null){
             Log.w(TAG, "Custom BLE Service not found");
             return;

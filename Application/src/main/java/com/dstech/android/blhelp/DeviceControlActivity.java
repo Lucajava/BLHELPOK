@@ -52,7 +52,7 @@ import java.util.List;
  * Bluetooth LE API.
  */
 public class DeviceControlActivity extends Activity {
-    private final static String TAG = DeviceControlActivity.class.getSimpleName();
+    private final static String TAG = "DeviceControlActivty";
 
     public static final String EXTRAS_DEVICE_NAME = "DEVICE_NAME";
     public static final String EXTRAS_DEVICE_ADDRESS = "DEVICE_ADDRESS";
@@ -85,7 +85,17 @@ public class DeviceControlActivity extends Activity {
             }
             // Automatically connects to the device upon successful start-up initialization.
             mBluetoothLeService.connect(mDeviceAddress);
-            mBluetoothLeService.readCustomCharacteristic();
+            Log.d(TAG, "Tentativo nell'onServiceConnected dell'mServiceConnection");
+            final Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    if (mBluetoothLeService != null) {
+                        mBluetoothLeService.readCustomCharacteristic();
+                    }
+                }
+            }, 1000);
+            //mBluetoothLeService.readCustomCharacteristic();
         }
 
         @Override
@@ -107,16 +117,26 @@ public class DeviceControlActivity extends Activity {
             if (BluetoothLeService.ACTION_GATT_CONNECTED.equals(action)) {
                 mConnected = true;
                 updateConnectionState(R.string.connected);
-                mBluetoothLeService.readCustomCharacteristic();
                 invalidateOptionsMenu();
+                mBluetoothLeService.readCustomCharacteristic();
+                Log.d(TAG, "Tentativo nell'OnReceive dell'mGattUpdateReceiver");
+                final Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (mBluetoothLeService != null) {
+                            mBluetoothLeService.readCustomCharacteristic();
+                        }
+                    }
+                }, 1000);
             } else if (BluetoothLeService.ACTION_GATT_DISCONNECTED.equals(action)) {
                 mConnected = false;
                 updateConnectionState(R.string.disconnected);
                 invalidateOptionsMenu();
                 clearUI();
+
             } else if (BluetoothLeService.ACTION_GATT_SERVICES_DISCOVERED.equals(action)) {
-                // Show all the supported services and characteristics on the user interface.
-                //displayGattServices(mBluetoothLeService.getSupportedGattServices());
+
             } else if (BluetoothLeService.ACTION_DATA_AVAILABLE.equals(action)) {
 
                 data = intent.getStringExtra(BluetoothLeService.EXTRA_DATA);
@@ -145,6 +165,16 @@ public class DeviceControlActivity extends Activity {
         getActionBar().setDisplayHomeAsUpEnabled(true);
         Intent gattServiceIntent = new Intent(this, BluetoothLeService.class);
         bindService(gattServiceIntent, mServiceConnection, BIND_AUTO_CREATE);
+
+        final Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if (mBluetoothLeService != null) {
+                    mBluetoothLeService.readCustomCharacteristic();
+                }
+            }
+        }, 1000);
     }
 
     @Override
@@ -284,23 +314,7 @@ public class DeviceControlActivity extends Activity {
     public void onClickWriteSound(View v) {
         if (mBluetoothLeService != null) {
             mBluetoothLeService.writeCustomCharacteristic(0x02);
-            //findViewById(R.id.buttonSound).setEnabled(false);
             ((Button) findViewById(R.id.buttonSound)).setText("Wait");
-
-            /*timer = new CountDownTimer(2000, 500) {
-                @Override
-                public void onTick(long millisUntilFinished) {}
-
-                @Override
-                public void onFinish() {
-                    mBluetoothLeService.writeCustomCharacteristic(0x00);
-                    ((Button)findViewById(R.id.buttonSound)).setText("Sound");
-                }
-            };
-            timer.start();*/
-
-            //findViewById(R.id.buttonSound).setEnabled(true);
-
         }
     }
 
@@ -308,18 +322,6 @@ public class DeviceControlActivity extends Activity {
         if (mBluetoothLeService != null) {
             mBluetoothLeService.writeCustomCharacteristic(0x01);
             ((Button) findViewById(R.id.buttonLight)).setText("Wait");
-
-            /*timer = new CountDownTimer(2000, 500) {
-                @Override
-                public void onTick(long millisUntilFinished) {}
-
-                @Override
-                public void onFinish() {
-                    mBluetoothLeService.writeCustomCharacteristic(0x00);
-                    ((Button)findViewById(R.id.buttonLight)).setText("Light");
-                }
-            };
-            timer.start();*/
         }
     }
 
@@ -347,24 +349,11 @@ public class DeviceControlActivity extends Activity {
 
             public void onFinish() {
 
-                ((TextView) findViewById(R.id.txt_timer2)).setText("HAI PREMUTO 10 SECONDI");
+                ((TextView) findViewById(R.id.txt_timer2)).setText("HAI PREMUTO 5 SECONDI");
 
                 Intent intent = new Intent();
-                //intent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
                 intent.setAction("com.cleverdroid.driver.component.Button.1");
-                //intent.putExtra("HighScore", 1000);
                 sendBroadcast(intent);
-
-                /*final Ringtone r = RingtoneManager.getRingtone(getApplicationContext(), suoneria);
-
-                r.play();
-                final Handler handler = new Handler();
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        r.stop();
-                    }
-                }, 1000);*/
 
                 timerInCorso = false;
             }
