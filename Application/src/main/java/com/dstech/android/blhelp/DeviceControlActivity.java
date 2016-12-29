@@ -30,6 +30,7 @@ import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.os.Handler;
 import android.os.IBinder;
 import android.util.Log;
 import android.view.Menu;
@@ -335,7 +336,7 @@ public class DeviceControlActivity extends Activity {
     }
     private boolean timerInCorso = false;
     private CountDownTimer timer = resetCounTimer();
-
+    private int counter =0;
     private CountDownTimer resetCounTimer(){
         timerInCorso=false;
         return new CountDownTimer(10000, 500) {
@@ -346,9 +347,23 @@ public class DeviceControlActivity extends Activity {
             }
 
             public void onFinish() {
+
                 ((TextView)findViewById(R.id.txt_timer2)).setText("HAI PREMUTO 10 SECONDI");
-                Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
-                startActivity(intent);
+                Uri notification = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALL);
+                final Ringtone r = RingtoneManager.getRingtone(getApplicationContext(), notification);
+
+
+                    r.play();
+               final Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        r.stop();
+                    }
+                }, 10);
+
+
+
                 timerInCorso = false;
             }
         };
@@ -357,7 +372,7 @@ public class DeviceControlActivity extends Activity {
     private void clickButton(final String data){
         if(data.contains("01")){
             ((TextView)findViewById(R.id.txt_2)).setText("HAI PREMUTO IL PULSANTE");
-            Uri notification = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+           Uri notification = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
             Ringtone r = RingtoneManager.getRingtone(getApplicationContext(), notification);
             r.play();
             if(!timerInCorso){
