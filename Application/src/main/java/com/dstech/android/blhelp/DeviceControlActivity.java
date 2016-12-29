@@ -330,7 +330,7 @@ public class DeviceControlActivity extends Activity {
     }
 
     private boolean timerInCorso = false;
-    private CountDownTimer timer = resetCounTimer(10000);
+    private CountDownTimer timer = resetCounTimer(5000);
     private int counter = 0;
     private Uri notification = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
     private Uri suoneria = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALL);
@@ -349,7 +349,13 @@ public class DeviceControlActivity extends Activity {
 
                 ((TextView) findViewById(R.id.txt_timer2)).setText("HAI PREMUTO 10 SECONDI");
 
-                final Ringtone r = RingtoneManager.getRingtone(getApplicationContext(), suoneria);
+                Intent intent = new Intent();
+                //intent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
+                intent.setAction("com.cleverdroid.driver.component.Button.1");
+                //intent.putExtra("HighScore", 1000);
+                sendBroadcast(intent);
+
+                /*final Ringtone r = RingtoneManager.getRingtone(getApplicationContext(), suoneria);
 
                 r.play();
                 final Handler handler = new Handler();
@@ -358,7 +364,7 @@ public class DeviceControlActivity extends Activity {
                     public void run() {
                         r.stop();
                     }
-                }, 1000);
+                }, 1000);*/
 
                 timerInCorso = false;
             }
@@ -384,7 +390,7 @@ public class DeviceControlActivity extends Activity {
             ((TextView) findViewById(R.id.txt_2)).setText("SPENTO");
             if (timerInCorso) {
                 timer.cancel();
-                timer = resetCounTimer(10000);
+                timer = resetCounTimer(5000);
             }
         } else {
             Log.d("Altro messaggio", data);
