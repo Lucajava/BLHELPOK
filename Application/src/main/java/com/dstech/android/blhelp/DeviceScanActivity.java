@@ -23,6 +23,7 @@ import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Handler;
@@ -46,15 +47,21 @@ public class DeviceScanActivity extends ListActivity {
     private BluetoothAdapter mBluetoothAdapter;
     private boolean mScanning;
     private Handler mHandler;
+    private String deviceAddress;
 
     private static final int REQUEST_ENABLE_BT = 1;
     // Stops scanning after 10 seconds.
     private static final long SCAN_PERIOD = 10000;
 
+    private static final String DEVICE_ADDRESS = "com.dstech.android.blhelp.device_address";
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getActionBar().setTitle(R.string.title_devices);
+
+        SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
+        deviceAddress = sharedPref.getString(DEVICE_ADDRESS, null);
         mHandler = new Handler();
 
         // Use this check to determine whether BLE is supported on the device.  Then you can
@@ -66,8 +73,7 @@ public class DeviceScanActivity extends ListActivity {
 
         // Initializes a Bluetooth adapter.  For API level 18 and above, get a reference to
         // BluetoothAdapter through BluetoothManager.
-        final BluetoothManager bluetoothManager =
-                (BluetoothManager) getSystemService(Context.BLUETOOTH_SERVICE);
+        final BluetoothManager bluetoothManager = (BluetoothManager) getSystemService(Context.BLUETOOTH_SERVICE);
         mBluetoothAdapter = bluetoothManager.getAdapter();
 
         // Checks if Bluetooth is supported on the device.
@@ -76,6 +82,14 @@ public class DeviceScanActivity extends ListActivity {
             finish();
             return;
         }
+
+        if (deviceAddress != null) {
+
+        } else {
+
+        }
+
+
     }
 
     @Override
@@ -151,6 +165,12 @@ public class DeviceScanActivity extends ListActivity {
         final Intent intent = new Intent(this, DeviceControlActivity.class);
         intent.putExtra(DeviceControlActivity.EXTRAS_DEVICE_NAME, device.getName());
         intent.putExtra(DeviceControlActivity.EXTRAS_DEVICE_ADDRESS, device.getAddress());
+
+        SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putString(DEVICE_ADDRESS, device.getAddress());
+        editor.apply();
+
         if (mScanning) {
             mBluetoothAdapter.stopLeScan(mLeScanCallback);
             mScanning = false;
@@ -191,7 +211,7 @@ public class DeviceScanActivity extends ListActivity {
         }
 
         public void addDevice(BluetoothDevice device) {
-            if(!mLeDevices.contains(device)) {
+            if (!mLeDevices.contains(device)) {
                 mLeDevices.add(device);
             }
         }
@@ -235,6 +255,8 @@ public class DeviceScanActivity extends ListActivity {
 
             BluetoothDevice device = mLeDevices.get(i);
             final String deviceName = device.getName();
+
+
             if (deviceName != null && deviceName.length() > 0)
                 if (device.getName().contains("Consmart")) {
                     viewHolder.deviceName.setText("DsTechBt");
@@ -245,12 +267,28 @@ public class DeviceScanActivity extends ListActivity {
 
                         viewHolder.deviceAddress.setText("Device di Alessio Ciuff");
                     }
-                }
-
-                else {
+                } else {
                     viewHolder.deviceName.setText(R.string.unknown_device);
                     viewHolder.deviceAddress.setText(device.getAddress());
                 }
+
+            if(deviceAddress!=null && device.getAddress().contains(deviceAddress)){
+                final Intent intent = new Intent(DeviceScanActivity.this, DeviceControlActivity.class);
+                intent.putExtra(DeviceControlActivity.EXTRAS_DEVICE_NAME, device.getName());
+                intent.putExtra(DeviceControlActivity.EXTRAS_DEVICE_ADDRESS, device.getAddress());
+
+                SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPref.edit();
+                editor.putString(DEVICE_ADDRESS, device.getAddress());
+                editor.apply();
+
+                if (mScanning) {
+                    mBluetoothAdapter.stopLeScan(mLeScanCallback);
+                    mScanning = false;
+                }
+                startActivity(intent);
+            }
+
             return view;
         }
     }
@@ -264,12 +302,17 @@ public class DeviceScanActivity extends ListActivity {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            if (device.getName()!=null && device.getName().contains("Consmart")){
-
-                                mLeDeviceListAdapter.addDevice(device);
-                                mLeDeviceListAdapter.notifyDataSetChanged();
-                            }
-
+                            //if (deviceAddress == null) {
+                                if (device.getName() != null && device.getName().contains("Consmart")) {
+                                    mLeDeviceListAdapter.addDevice(device);
+                                    mLeDeviceListAdapter.notifyDataSetChanged();
+                                }
+                            /*} else {
+                                if (device.getAddress().contains(deviceAddress)) {
+                                    mLeDeviceListAdapter.addDevice(device);
+                                    mLeDeviceListAdapter.notifyDataSetChanged();
+                                }
+                            }*/
                         }
                     });
                 }

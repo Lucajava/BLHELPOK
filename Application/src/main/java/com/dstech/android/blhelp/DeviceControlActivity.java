@@ -184,26 +184,6 @@ public class DeviceControlActivity extends Activity {
     }
 
     @Override
-    protected void onStart() {
-        super.onStart();
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-    }
-
-    @Override
     protected void onDestroy() {
         super.onDestroy();
         unregisterReceiver(mGattUpdateReceiver);
@@ -286,8 +266,6 @@ public class DeviceControlActivity extends Activity {
     private CountDownTimer timer = resetCounTimer(5000);
     private int counter = 0;
     private Uri notification = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
-    private Uri suoneria = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALL);
-
 
     private CountDownTimer resetCounTimer(long millisInFuture) {
         timerInCorso = false;
