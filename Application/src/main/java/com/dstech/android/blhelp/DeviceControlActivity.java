@@ -25,6 +25,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
+import android.content.SharedPreferences;
 import android.media.Ringtone;
 import android.media.RingtoneManager;
 import android.net.Uri;
@@ -56,6 +57,7 @@ public class DeviceControlActivity extends Activity {
 
     public static final String EXTRAS_DEVICE_NAME = "DEVICE_NAME";
     public static final String EXTRAS_DEVICE_ADDRESS = "DEVICE_ADDRESS";
+    public static final String RESET = "com.dstech.android.blhelp.reset";
 
     private TextView mConnectionState;
     private TextView mDataField;
@@ -118,7 +120,11 @@ public class DeviceControlActivity extends Activity {
                 mConnected = true;
                 updateConnectionState(R.string.connected);
                 invalidateOptionsMenu();
-                mBluetoothLeService.readCustomCharacteristic();
+
+                if(mBluetoothLeService!=null){
+                    mBluetoothLeService.readCustomCharacteristic();
+                }
+
                 Log.d(TAG, "Tentativo nell'OnReceive dell'mGattUpdateReceiver");
                 final Handler handler = new Handler();
                 handler.postDelayed(new Runnable() {
@@ -215,6 +221,9 @@ public class DeviceControlActivity extends Activity {
                 return true;
             case android.R.id.home:
                 onBackPressed();
+                return true;
+            case R.id.menu_reset:
+                onClickReset();
                 return true;
         }
         return super.onOptionsItemSelected(item);
@@ -314,5 +323,10 @@ public class DeviceControlActivity extends Activity {
             Log.d("Altro messaggio", data);
         }
 
+    }
+
+    public void onClickReset(){
+
+        DeviceScanActivity.setDefaults(DeviceScanActivity.DEVICE_ADDRESS, null, this);
     }
 }

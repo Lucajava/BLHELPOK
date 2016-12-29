@@ -27,6 +27,7 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Handler;
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -53,15 +54,17 @@ public class DeviceScanActivity extends ListActivity {
     // Stops scanning after 10 seconds.
     private static final long SCAN_PERIOD = 10000;
 
-    private static final String DEVICE_ADDRESS = "com.dstech.android.blhelp.device_address";
+    public static final String DEVICE_ADDRESS = "com.dstech.android.blhelp.device_address";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getActionBar().setTitle(R.string.title_devices);
 
-        SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
-        deviceAddress = sharedPref.getString(DEVICE_ADDRESS, null);
+        deviceAddress = getDefaults(DEVICE_ADDRESS, DeviceScanActivity.this);
+
+        /*SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
+        deviceAddress = sharedPref.getString(DEVICE_ADDRESS, null);*/
         mHandler = new Handler();
 
         // Use this check to determine whether BLE is supported on the device.  Then you can
@@ -82,14 +85,6 @@ public class DeviceScanActivity extends ListActivity {
             finish();
             return;
         }
-
-        if (deviceAddress != null) {
-
-        } else {
-
-        }
-
-
     }
 
     @Override
@@ -125,7 +120,7 @@ public class DeviceScanActivity extends ListActivity {
     @Override
     protected void onResume() {
         super.onResume();
-
+        deviceAddress = getDefaults(DEVICE_ADDRESS, DeviceScanActivity.this);
         // Ensures Bluetooth is enabled on the device.  If Bluetooth is not currently enabled,
         // fire an intent to display a dialog asking the user to grant permission to enable it.
         if (!mBluetoothAdapter.isEnabled()) {
@@ -166,10 +161,12 @@ public class DeviceScanActivity extends ListActivity {
         intent.putExtra(DeviceControlActivity.EXTRAS_DEVICE_NAME, device.getName());
         intent.putExtra(DeviceControlActivity.EXTRAS_DEVICE_ADDRESS, device.getAddress());
 
-        SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
+        setDefaults(DEVICE_ADDRESS, device.getAddress(), DeviceScanActivity.this);
+
+        /*SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
         editor.putString(DEVICE_ADDRESS, device.getAddress());
-        editor.apply();
+        editor.apply();*/
 
         if (mScanning) {
             mBluetoothAdapter.stopLeScan(mLeScanCallback);
@@ -277,10 +274,11 @@ public class DeviceScanActivity extends ListActivity {
                 intent.putExtra(DeviceControlActivity.EXTRAS_DEVICE_NAME, device.getName());
                 intent.putExtra(DeviceControlActivity.EXTRAS_DEVICE_ADDRESS, device.getAddress());
 
-                SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
+                setDefaults(DEVICE_ADDRESS, device.getAddress(), DeviceScanActivity.this);
+                /*SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedPref.edit();
                 editor.putString(DEVICE_ADDRESS, device.getAddress());
-                editor.apply();
+                editor.apply();*/
 
                 if (mScanning) {
                     mBluetoothAdapter.stopLeScan(mLeScanCallback);
@@ -321,5 +319,17 @@ public class DeviceScanActivity extends ListActivity {
     static class ViewHolder {
         TextView deviceName;
         TextView deviceAddress;
+    }
+
+    public static void setDefaults(String key, String value, Context context) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putString(key, value);
+        editor.commit();
+    }
+
+    public static String getDefaults(String key, Context context) {
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+        return preferences.getString(key, null);
     }
 }
