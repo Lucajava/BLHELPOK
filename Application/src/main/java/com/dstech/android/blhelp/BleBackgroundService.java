@@ -16,8 +16,6 @@ import android.support.annotation.Nullable;
 import android.util.Log;
 import android.widget.Toast;
 
-import java.util.Timer;
-import java.util.TimerTask;
 
 /**
  * Created by basil on 30/12/2016.
@@ -32,6 +30,7 @@ public class BleBackgroundService extends Service {
     private final IBinder mBinder = new BleBackgroundBinder();
     private BluetoothLeService mBluetoothLeService;
     private String mDeviceAddress;
+    private BluetoothAdapter.LeScanCallback mLeScanCallback;
 
     // Code to manage Service lifecycle.
     private final ServiceConnection mServiceConnection = new ServiceConnection() {
@@ -78,9 +77,18 @@ public class BleBackgroundService extends Service {
             return;
         }
 
-        scanLeDevice(true);
+        Log.d(TAG, "Tentativo di far partire lo scan");
+        if(!isAplicationOpen()){
+            Log.d(TAG, "è partito lo scan");
+            mLeScanCallback=resetLeScanCallBack();
+            scanLeDevice(true);
+        }
     }
 
+    public boolean isAplicationOpen() {
+        return DeviceScanActivity.getDefaults(DeviceScanActivity.APPLICATION_RUN, this)!=null? DeviceScanActivity.getDefaults(DeviceScanActivity.APPLICATION_RUN, this).equals("1"):true;
+
+    }
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
@@ -164,21 +172,25 @@ public class BleBackgroundService extends Service {
         }
     }
 
-    private BluetoothAdapter.LeScanCallback mLeScanCallback =
-            new BluetoothAdapter.LeScanCallback() {
-                @Override
-                public void onLeScan(final BluetoothDevice device, int rssi, byte[] scanRecord) {
-                    new Runnable() {
-                        @Override
-                        public void run() {
-                            if (device.getName() != null && device.getName().contains("Consmart")) {
-                                if(mDeviceAddress != null && device.getAddress().contains(mDeviceAddress)){
-                                    connectBluetoothLeService();
-                                }
+    private BluetoothAdapter.LeScanCallback resetLeScanCallBack(){
+        return new BluetoothAdapter.LeScanCallback() {
+            @Override
+            public void onLeScan(final BluetoothDevice device, int rssi, byte[] scanRecord) {
+                new Runnable() {
+                    @Override
+                    public void run() {
+                        if (device.getName() != null && device.getName().contains("Consmart")) {
+                            if(mDeviceAddress != null && device.getAddress().contains(mDeviceAddress)){
+                                connectBluetoothLeService();
                             }
                         }
-                    }.run();
-                }
-            };
+                    }
+                }.run();
+            }
+        };
+    }
+
+
+
 
 }

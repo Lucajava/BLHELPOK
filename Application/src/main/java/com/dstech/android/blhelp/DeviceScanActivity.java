@@ -57,7 +57,7 @@ public class DeviceScanActivity extends ListActivity {
     private String deviceAddress;
     private BleBackgroundService bleBackgroundService;
     private boolean mIsBound;
-    private BluetoothAdapter mBluetoothAdapter;
+    public static final String APPLICATION_RUN = "com.dstech.android.blhelp.application_is_running";
 
     private ServiceConnection mConnection = new ServiceConnection() {
         public void onServiceConnected(ComponentName className, IBinder service) {
@@ -104,6 +104,12 @@ public class DeviceScanActivity extends ListActivity {
         }
     }
 
+    @Override
+    protected void onDestroy() {
+        setDefaults(APPLICATION_RUN, "0", this);
+        super.onDestroy();
+    }
+
     private static final int REQUEST_ENABLE_BT = 1;
     // Stops scanning after 10 seconds.
     private static final long SCAN_PERIOD = 10000;
@@ -113,6 +119,7 @@ public class DeviceScanActivity extends ListActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setDefaults(APPLICATION_RUN, "1", this);
         getActionBar().setTitle(R.string.title_devices);
 
         deviceAddress = getDefaults(DEVICE_ADDRESS, DeviceScanActivity.this);
