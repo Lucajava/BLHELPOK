@@ -42,10 +42,30 @@ public class BleBackgroundService extends Service {
             if (!mBluetoothLeService.initialize()) {
                 Log.e(TAG, "Unable to initialize Bluetooth");
                 stopSelf();
-
             }
             // Automatically connects to the device upon successful start-up initialization.
             mBluetoothLeService.connect(mDeviceAddress);
+            /*(new Thread(new Runnable() {
+
+                @Override
+                public void run() {
+                    while (!Thread.interrupted())
+                        try {
+                            Thread.sleep(1000);
+                            new Runnable()
+                            {
+                                @Override
+                                public void run() {
+                                    if (mBluetoothLeService != null) {
+                                        mBluetoothLeService.readCustomCharacteristic();
+                                    }
+                                }
+                            };
+                        } catch (InterruptedException e) {
+                            // ooops
+                        }
+                }
+            })).start();*/
             Log.d(TAG, "Tentativo nell'onServiceConnected dell'mServiceConnection");
         }
 
