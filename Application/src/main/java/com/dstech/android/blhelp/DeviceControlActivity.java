@@ -59,16 +59,16 @@ public class DeviceControlActivity extends Activity {
     public static final String EXTRAS_DEVICE_ADDRESS = "DEVICE_ADDRESS";
     public static final String RESET = "com.dstech.android.blhelp.reset";
 
-    private TextView mConnectionState;
     private TextView mDataField;
     private String mDeviceName;
     private String mDeviceAddress;
-    private ExpandableListView mGattServicesList;
     private BluetoothLeService mBluetoothLeService;
     private ArrayList<ArrayList<BluetoothGattCharacteristic>> mGattCharacteristics = new ArrayList<ArrayList<BluetoothGattCharacteristic>>();
     private boolean mConnected = false;
     private BluetoothGattCharacteristic mNotifyCharacteristic;
     private String data;
+
+    private boolean stopReader = false;
 
     private final String LIST_NAME = "NAME";
     private final String LIST_UUID = "UUID";
@@ -161,7 +161,7 @@ public class DeviceControlActivity extends Activity {
                         {
                             @Override
                             public void run() {
-                                if (mBluetoothLeService != null) {
+                                if (mBluetoothLeService != null && !stopReader) {
                                     mBluetoothLeService.readCustomCharacteristic();
                                 }// this action have to be in UI thread
                             }
@@ -245,13 +245,19 @@ public class DeviceControlActivity extends Activity {
 
     public void onClickWriteSound(View v) {
         if (mBluetoothLeService != null) {
+            stopReader=true;
             mBluetoothLeService.writeCustomCharacteristic(0x02);
+            mBluetoothLeService.writeCustomCharacteristic(0x02);
+            mBluetoothLeService.readCustomCharacteristic();
         }
     }
 
     public void onClickWriteLight(View v) {
         if (mBluetoothLeService != null) {
+            stopReader=true;
             mBluetoothLeService.writeCustomCharacteristic(0x01);
+            mBluetoothLeService.writeCustomCharacteristic(0x01);
+            mBluetoothLeService.readCustomCharacteristic();
         }
     }
 
@@ -316,7 +322,6 @@ public class DeviceControlActivity extends Activity {
     }
 
     public void onClickReset() {
-
         DeviceScanActivity.setDefaults(DeviceScanActivity.DEVICE_ADDRESS, null, this);
     }
 }
