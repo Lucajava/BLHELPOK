@@ -120,6 +120,7 @@ public class DeviceScanActivity extends ListActivity {
         mHandler = new Handler();
 
         Intent bleBackgroundServiceIntent = new Intent(this, BleBackgroundService.class);
+        startService(bleBackgroundServiceIntent);
         bindService(bleBackgroundServiceIntent, mConnection, BIND_AUTO_CREATE);
 
         new AlertDialog.Builder(this).setTitle(R.string.connect_device_title)

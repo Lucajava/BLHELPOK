@@ -2,6 +2,7 @@ package com.dstech.android.blhelp;
 
 import android.app.Service;
 import android.bluetooth.BluetoothAdapter;
+import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothManager;
 import android.content.ComponentName;
 import android.content.Context;
@@ -26,7 +27,6 @@ public class BleBackgroundService extends Service {
 
     private BluetoothAdapter mBluetoothAdapter;
     private Handler mHandler;
-    private BluetoothAdapter.LeScanCallback mLeScanCallback;
     private final String TAG = "BleBackgroundService";
     private static final long SCAN_PERIOD = 10000;
     private final IBinder mBinder = new BleBackgroundBinder();
@@ -78,7 +78,7 @@ public class BleBackgroundService extends Service {
             return;
         }
 
-        startTimer();
+        scanLeDevice(true);
     }
 
 
@@ -164,24 +164,21 @@ public class BleBackgroundService extends Service {
         }
     }
 
-    private Timer timer;
-    public void startTimer(){
-        timer = new Timer();
-
-        inizializedTimerTask();
-
-        timer.schedule(timerTask, 1000, 1000);
-
-    }
-    private TimerTask timerTask;
-    private int counter=0;
-    public void inizializedTimerTask(){
-        timerTask = new TimerTask() {
-            @Override
-            public void run() {
-                Log.d(TAG, "in timer ++++"+ (counter++));
-            }
-        };
-    }
+    private BluetoothAdapter.LeScanCallback mLeScanCallback =
+            new BluetoothAdapter.LeScanCallback() {
+                @Override
+                public void onLeScan(final BluetoothDevice device, int rssi, byte[] scanRecord) {
+                    new Runnable() {
+                        @Override
+                        public void run() {
+                            if (device.getName() != null && device.getName().contains("Consmart")) {
+                                if(mDeviceAddress != null && device.getAddress().contains(mDeviceAddress)){
+                                    connectBluetoothLeService();
+                                }
+                            }
+                        }
+                    }.run();
+                }
+            };
 
 }
