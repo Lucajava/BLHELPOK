@@ -23,14 +23,18 @@ import android.app.ListActivity;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothManager;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.ServiceConnection;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.IBinder;
 import android.preference.PreferenceManager;
+import android.renderscript.ScriptGroup;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -48,10 +52,57 @@ import java.util.ArrayList;
  */
 public class DeviceScanActivity extends ListActivity {
     private LeDeviceListAdapter mLeDeviceListAdapter;
-    private BluetoothAdapter mBluetoothAdapter;
     private boolean mScanning;
     private Handler mHandler;
     private String deviceAddress;
+    private BleBackgroundService bleBackgroundService;
+    private boolean mIsBound;
+    private BluetoothAdapter mBluetoothAdapter;
+
+    private ServiceConnection mConnection = new ServiceConnection() {
+        public void onServiceConnected(ComponentName className, IBinder service) {
+            // This is called when the connection with the service has been
+            // established, giving us the service object we can use to
+            // interact with the service.  Because we have bound to a explicit
+            // service that we know is running in our own process, we can
+            // cast its IBinder to a concrete class and directly access it.
+            bleBackgroundService = ((BleBackgroundService.BleBackgroundBinder)service).getService();
+            bleBackgroundService.setmLeScanCallback(mLeScanCallback);
+            if (!bleBackgroundService.bluetoothAdapterEnable()) {
+                Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
+                startActivityForResult(enableBtIntent, REQUEST_ENABLE_BT);
+            }
+            // Tell the user about this for our demo.
+            Toast.makeText(DeviceScanActivity.this, R.string.local_service_connected,
+                    Toast.LENGTH_SHORT).show();
+        }
+
+        public void onServiceDisconnected(ComponentName className) {
+            // This is called when the connection with the service has been
+            // unexpectedly disconnected -- that is, its process crashed.
+            // Because it is running in our same process, we should never
+            // see this happen.
+            bleBackgroundService = null;
+            Toast.makeText(DeviceScanActivity.this, R.string.local_service_disconnected, Toast.LENGTH_SHORT).show();
+        }
+    };
+
+    void doBindService() {
+        // Establish a connection with the service.  We use an explicit
+        // class name because we want a specific service implementation that
+        // we know will be running in our own process (and thus won't be
+        // supporting component replacement by other applications).
+        bindService(new Intent(DeviceScanActivity.this, BleBackgroundService.class), mConnection, Context.BIND_AUTO_CREATE);
+        mIsBound = true;
+    }
+
+    void doUnbindService() {
+        if (mIsBound) {
+            // Detach our existing connection.
+            unbindService(mConnection);
+            mIsBound = false;
+        }
+    }
 
     private static final int REQUEST_ENABLE_BT = 1;
     // Stops scanning after 10 seconds.
@@ -66,45 +117,21 @@ public class DeviceScanActivity extends ListActivity {
 
         deviceAddress = getDefaults(DEVICE_ADDRESS, DeviceScanActivity.this);
 
-        /*SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
-        deviceAddress = sharedPref.getString(DEVICE_ADDRESS, null);*/
         mHandler = new Handler();
 
+        Intent bleBackgroundServiceIntent = new Intent(this, BleBackgroundService.class);
+        bindService(bleBackgroundServiceIntent, mConnection, BIND_AUTO_CREATE);
 
-        // Use this check to determine whether BLE is supported on the device.  Then you can
-        // selectively disable BLE-related features.
-        if (!getPackageManager().hasSystemFeature(PackageManager.FEATURE_BLUETOOTH_LE)) {
-            Toast.makeText(this, R.string.ble_not_supported, Toast.LENGTH_SHORT).show();
-            finish();
-        }
-
-        // Initializes a Bluetooth adapter.  For API level 18 and above, get a reference to
-        // BluetoothAdapter through BluetoothManager.
-        final BluetoothManager bluetoothManager = (BluetoothManager) getSystemService(Context.BLUETOOTH_SERVICE);
-        mBluetoothAdapter = bluetoothManager.getAdapter();
-
-        // Checks if Bluetooth is supported on the device.
-        if (mBluetoothAdapter == null) {
-            Toast.makeText(this, R.string.error_bluetooth_not_supported, Toast.LENGTH_SHORT).show();
-            finish();
-            return;
-        }
-
-        new AlertDialog.Builder(this)
-                .setTitle(R.string.connect_device_title)
-                .setMessage(R.string.connect_device)
-                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+        new AlertDialog.Builder(this).setTitle(R.string.connect_device_title)
+                .setMessage(R.string.connect_device).setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         // continue with delete
                     }
-                })
-                .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                }).setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         // do nothing
                     }
-                })
-                .setIcon(android.R.drawable.ic_dialog_alert)
-                .show();
+                }).setIcon(android.R.drawable.ic_dialog_alert).show();
     }
 
     @Override
@@ -141,14 +168,11 @@ public class DeviceScanActivity extends ListActivity {
     protected void onResume() {
         super.onResume();
         deviceAddress = getDefaults(DEVICE_ADDRESS, DeviceScanActivity.this);
+
         // Ensures Bluetooth is enabled on the device.  If Bluetooth is not currently enabled,
         // fire an intent to display a dialog asking the user to grant permission to enable it.
-        if (!mBluetoothAdapter.isEnabled()) {
-            if (!mBluetoothAdapter.isEnabled()) {
-                Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
-                startActivityForResult(enableBtIntent, REQUEST_ENABLE_BT);
-            }
-        }
+
+
 
         // Initializes list view adapter.
         mLeDeviceListAdapter = new LeDeviceListAdapter();
@@ -189,26 +213,29 @@ public class DeviceScanActivity extends ListActivity {
         editor.apply();*/
 
         if (mScanning) {
-            mBluetoothAdapter.stopLeScan(mLeScanCallback);
+           bleBackgroundService.stopLeScan();
             mScanning = false;
         }
         startActivity(intent);
     }
 
     private void scanLeDevice(final boolean enable) {
+
+        if(bleBackgroundService!=null){
+            bleBackgroundService.scanLeDevice(enable);
+        }
+
         if (enable) {
             // Stops scanning after a pre-defined scan period.
             mHandler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
                     mScanning = false;
-                    mBluetoothAdapter.stopLeScan(mLeScanCallback);
+                    bleBackgroundService.stopLeScan();
                     invalidateOptionsMenu();
-                    if(mLeDeviceListAdapter.isEmpty()){
-                        new AlertDialog.Builder(DeviceScanActivity.this)
-                                .setTitle(R.string.connect_device_title)
-                                .setMessage(R.string.connect_device)
-                                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                    if (mLeDeviceListAdapter.isEmpty()) {
+                        new AlertDialog.Builder(DeviceScanActivity.this).setTitle(R.string.connect_device_title)
+                                .setMessage(R.string.connect_device).setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int which) {
                                         // continue with delete
                                     }
@@ -217,18 +244,13 @@ public class DeviceScanActivity extends ListActivity {
                                     public void onClick(DialogInterface dialog, int which) {
                                         // do nothing
                                     }
-                                })
-                                .setIcon(android.R.drawable.ic_dialog_alert)
-                                .show();
+                                }).show();
                     }
                 }
             }, SCAN_PERIOD);
-
             mScanning = true;
-            mBluetoothAdapter.startLeScan(mLeScanCallback);
         } else {
             mScanning = false;
-            mBluetoothAdapter.stopLeScan(mLeScanCallback);
         }
         invalidateOptionsMenu();
     }
@@ -295,10 +317,8 @@ public class DeviceScanActivity extends ListActivity {
                 if (device.getName().contains("Consmart")) {
                     viewHolder.deviceName.setText("DsTechBt");
                     if (device.getAddress().contains("7C:66:9D:7D:43:CE")) {
-
                         viewHolder.deviceAddress.setText("Device di Luca Ulizi");
                     } else if (device.getAddress().contains("7C:66:9D:7D:3F:7B")) {
-
                         viewHolder.deviceAddress.setText("Device di Alessio Ciuff");
                     }
                 } else {
@@ -318,7 +338,7 @@ public class DeviceScanActivity extends ListActivity {
                 editor.apply();*/
 
                 if (mScanning) {
-                    mBluetoothAdapter.stopLeScan(mLeScanCallback);
+                    bleBackgroundService.stopLeScan();
                     mScanning = false;
                 }
                 startActivity(intent);
@@ -331,13 +351,15 @@ public class DeviceScanActivity extends ListActivity {
     // Device scan callback.
     private BluetoothAdapter.LeScanCallback mLeScanCallback =
             new BluetoothAdapter.LeScanCallback() {
-
                 @Override
                 public void onLeScan(final BluetoothDevice device, int rssi, byte[] scanRecord) {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
                             if (device.getName() != null && device.getName().contains("Consmart")) {
+                                if(deviceAddress != null && device.getAddress().contains(deviceAddress)){
+                                    bleBackgroundService.connectBluetoothLeService();
+                                }
                                 mLeDeviceListAdapter.addDevice(device);
                                 mLeDeviceListAdapter.notifyDataSetChanged();
                             }

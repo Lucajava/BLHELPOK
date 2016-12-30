@@ -25,6 +25,8 @@
     <string name="error_bluetooth_not_supported">Bluetooth non supportato.</string>
     <string name="connect_device">Accendi il BLE.</string>
     <string name="connect_device_title">Allert</string>
+    <string name="local_service_connected">local service connected</string>
+    <string name="local_service_disconnected">local service disconnected</string>
 
     <string name="unknown_device">Device sconosciuto</string>
     <string name="unknown_characteristic">Caratteristica sconosciuta</string>

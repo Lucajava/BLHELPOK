@@ -17,6 +17,7 @@
 package com.dstech.android.blhelp;
 
 import android.app.Activity;
+import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothGattCharacteristic;
 import android.bluetooth.BluetoothGattService;
 import android.content.BroadcastReceiver;
@@ -41,6 +42,7 @@ import android.widget.Button;
 import android.widget.ExpandableListView;
 import android.widget.SimpleExpandableListAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -62,37 +64,40 @@ public class DeviceControlActivity extends Activity {
     private TextView mDataField;
     private String mDeviceName;
     private String mDeviceAddress;
-    private BluetoothLeService mBluetoothLeService;
-    private ArrayList<ArrayList<BluetoothGattCharacteristic>> mGattCharacteristics = new ArrayList<ArrayList<BluetoothGattCharacteristic>>();
     private boolean mConnected = false;
-    private BluetoothGattCharacteristic mNotifyCharacteristic;
     private String data;
+    private BleBackgroundService bleBackgroundService;
 
     private boolean stopReader = false;
 
-    private final String LIST_NAME = "NAME";
-    private final String LIST_UUID = "UUID";
+    private ServiceConnection mConnection = new ServiceConnection() {
+        public void onServiceConnected(ComponentName className, IBinder service) {
+            // This is called when the connection with the service has been
+            // established, giving us the service object we can use to
+            // interact with the service.  Because we have bound to a explicit
+            // service that we know is running in our own process, we can
+            // cast its IBinder to a concrete class and directly access it.
 
-    // Code to manage Service lifecycle.
-    private final ServiceConnection mServiceConnection = new ServiceConnection() {
-
-        @Override
-        public void onServiceConnected(ComponentName componentName, IBinder service) {
-            mBluetoothLeService = ((BluetoothLeService.LocalBinder) service).getService();
-
-            if (!mBluetoothLeService.initialize()) {
-                Log.e(TAG, "Unable to initialize Bluetooth");
-                finish();
-
+            bleBackgroundService = ((BleBackgroundService.BleBackgroundBinder)service).getService();
+            Log.d(TAG, "onServiceConnected del tentativo di connessione con BleService");
+            if (bleBackgroundService.getmBluetoothLeService() != null) {
+                final boolean result = bleBackgroundService.getmBluetoothLeService().connect(mDeviceAddress);
+                //bleBackgroundService.connectBluetoothLeService();
+                Log.d(TAG, "Connect request result=" + result);
             }
-            // Automatically connects to the device upon successful start-up initialization.
-            mBluetoothLeService.connect(mDeviceAddress);
-            Log.d(TAG, "Tentativo nell'onServiceConnected dell'mServiceConnection");
+
+            // Tell the user about this for our demo.
+            Toast.makeText(DeviceControlActivity.this, R.string.local_service_connected,
+                    Toast.LENGTH_SHORT).show();
         }
 
-        @Override
-        public void onServiceDisconnected(ComponentName componentName) {
-            mBluetoothLeService = null;
+        public void onServiceDisconnected(ComponentName className) {
+            // This is called when the connection with the service has been
+            // unexpectedly disconnected -- that is, its process crashed.
+            // Because it is running in our same process, we should never
+            // see this happen.
+            bleBackgroundService = null;
+            Toast.makeText(DeviceControlActivity.this, R.string.local_service_disconnected, Toast.LENGTH_SHORT).show();
         }
     };
 
@@ -108,14 +113,11 @@ public class DeviceControlActivity extends Activity {
             final String action = intent.getAction();
             if (BluetoothLeService.ACTION_GATT_CONNECTED.equals(action)) {
                 mConnected = true;
-                updateConnectionState(R.string.connected);
                 invalidateOptionsMenu();
-
                 Log.d(TAG, "Tentativo nell'OnReceive dell'mGattUpdateReceiver");
 
             } else if (BluetoothLeService.ACTION_GATT_DISCONNECTED.equals(action)) {
                 mConnected = false;
-                updateConnectionState(R.string.disconnected);
                 invalidateOptionsMenu();
                 clearUI();
 
@@ -147,8 +149,9 @@ public class DeviceControlActivity extends Activity {
 
         getActionBar().setTitle(R.string.app_name);
         getActionBar().setDisplayHomeAsUpEnabled(true);
-        Intent gattServiceIntent = new Intent(this, BluetoothLeService.class);
-        bindService(gattServiceIntent, mServiceConnection, BIND_AUTO_CREATE);
+
+        Intent bleBackgroundServiceIntent = new Intent(this, BleBackgroundService.class);
+        bindService(bleBackgroundServiceIntent, mConnection, BIND_AUTO_CREATE);
 
         (new Thread(new Runnable() {
 
@@ -161,9 +164,9 @@ public class DeviceControlActivity extends Activity {
                         {
                             @Override
                             public void run() {
-                                if (mBluetoothLeService != null && !stopReader) {
-                                    mBluetoothLeService.readCustomCharacteristic();
-                                }// this action have to be in UI thread
+                                if (bleBackgroundService.getmBluetoothLeService() != null && !stopReader) {
+                                    bleBackgroundService.getmBluetoothLeService().readCustomCharacteristic();
+                                }
                             }
                         });
                     } catch (InterruptedException e) {
@@ -173,18 +176,13 @@ public class DeviceControlActivity extends Activity {
         })).start();
 
         registerReceiver(mGattUpdateReceiver, makeGattUpdateIntentFilter());
-        if (mBluetoothLeService != null) {
-            final boolean result = mBluetoothLeService.connect(mDeviceAddress);
-            Log.d(TAG, "Connect request result=" + result);
-        }
+
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
         unregisterReceiver(mGattUpdateReceiver);
-        unbindService(mServiceConnection);
-        mBluetoothLeService = null;
     }
 
     @Override
@@ -204,10 +202,14 @@ public class DeviceControlActivity extends Activity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_connect:
-                mBluetoothLeService.connect(mDeviceAddress);
+                if(bleBackgroundService!=null && bleBackgroundService.getmBluetoothLeService()!=null){
+                    bleBackgroundService.getmBluetoothLeService().connect(mDeviceAddress);
+                }
                 return true;
             case R.id.menu_disconnect:
-                mBluetoothLeService.disconnect();
+                if(bleBackgroundService!=null && bleBackgroundService.getmBluetoothLeService()!=null){
+                    bleBackgroundService.getmBluetoothLeService().disconnect();
+                }
                 return true;
             case android.R.id.home:
                 onBackPressed();
@@ -217,15 +219,6 @@ public class DeviceControlActivity extends Activity {
                 return true;
         }
         return super.onOptionsItemSelected(item);
-    }
-
-    private void updateConnectionState(final int resourceId) {
-        runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                //mConnectionState.setText(resourceId);
-            }
-        });
     }
 
     private void displayData(String data) {
@@ -244,26 +237,26 @@ public class DeviceControlActivity extends Activity {
     }
 
     public void onClickWriteSound(View v) {
-        if (mBluetoothLeService != null) {
+        if (bleBackgroundService.getmBluetoothLeService() != null) {
             stopReader=true;
-            mBluetoothLeService.writeCustomCharacteristic(0x02);
-            mBluetoothLeService.writeCustomCharacteristic(0x02);
-            mBluetoothLeService.readCustomCharacteristic();
+            bleBackgroundService.getmBluetoothLeService().writeCustomCharacteristic(0x02); //FIXME
+            bleBackgroundService.getmBluetoothLeService().writeCustomCharacteristic(0x02);
+            bleBackgroundService.getmBluetoothLeService().readCustomCharacteristic();
         }
     }
 
     public void onClickWriteLight(View v) {
-        if (mBluetoothLeService != null) {
+        if (bleBackgroundService.getmBluetoothLeService() != null) {
             stopReader=true;
-            mBluetoothLeService.writeCustomCharacteristic(0x01);
-            mBluetoothLeService.writeCustomCharacteristic(0x01);
-            mBluetoothLeService.readCustomCharacteristic();
+            bleBackgroundService.getmBluetoothLeService().writeCustomCharacteristic(0x01); //FIXME
+            bleBackgroundService.getmBluetoothLeService().writeCustomCharacteristic(0x01);
+            bleBackgroundService.getmBluetoothLeService().readCustomCharacteristic();
         }
     }
 
     public void onClickRead(View v) {
-        if (mBluetoothLeService != null) {
-            mBluetoothLeService.readCustomCharacteristic();
+        if (bleBackgroundService.getmBluetoothLeService() != null) {
+            bleBackgroundService.getmBluetoothLeService().readCustomCharacteristic(); //FIXME
         }
     }
 
@@ -323,5 +316,6 @@ public class DeviceControlActivity extends Activity {
 
     public void onClickReset() {
         DeviceScanActivity.setDefaults(DeviceScanActivity.DEVICE_ADDRESS, null, this);
+        onBackPressed();
     }
 }
