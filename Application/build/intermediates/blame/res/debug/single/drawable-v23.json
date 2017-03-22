@@ -1,5 +1,13 @@
 [
     {
+        "merged": "/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPOK-V2/Application/build/intermediates/res/merged/debug/drawable-v23/abc_control_background_material.xml",
+        "source": "/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPOK-V2/Application/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable-v23/abc_control_background_material.xml"
+    },
+    {
+        "merged": "/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPDEF/Application/build/intermediates/res/merged/debug/drawable-v23/abc_control_background_material.xml",
+        "source": "/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPDEF/Application/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable-v23/abc_control_background_material.xml"
+    },
+    {
         "merged": "/Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/build/intermediates/res/merged/debug/drawable-v23/abc_control_background_material.xml",
         "source": "/Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable-v23/abc_control_background_material.xml"
     }

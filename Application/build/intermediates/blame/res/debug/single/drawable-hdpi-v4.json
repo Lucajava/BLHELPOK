@@ -1,23 +1,23 @@
 [
     {
-        "merged": "/Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/build/intermediates/res/merged/debug/drawable-hdpi-v4/googleg_standard_color_18.png",
-        "source": "/Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.2.0/res/drawable-hdpi-v4/googleg_standard_color_18.png"
-    },
-    {
         "merged": "/Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/build/intermediates/res/merged/debug/drawable-hdpi-v4/common_google_signin_btn_icon_light_normal_background.9.png",
         "source": "/Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.2.0/res/drawable-hdpi-v4/common_google_signin_btn_icon_light_normal_background.9.png"
     },
     {
+        "merged": "/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPOK-V2/Application/build/intermediates/res/merged/debug/drawable-hdpi-v4/mybutton.xml",
+        "source": "/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPOK-V2/Application/src/main/res/drawable-hdpi/mybutton.xml"
+    },
+    {
+        "merged": "/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPDEF/Application/build/intermediates/res/merged/debug/drawable-hdpi-v4/image_border.xml",
+        "source": "/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPDEF/Application/src/main/res/drawable-hdpi/image_border.xml"
+    },
+    {
+        "merged": "/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPDEF/Application/build/intermediates/res/merged/debug/drawable-hdpi-v4/mybutton.xml",
+        "source": "/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPDEF/Application/src/main/res/drawable-hdpi/mybutton.xml"
+    },
+    {
         "merged": "/Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/build/intermediates/res/merged/debug/drawable-hdpi-v4/common_google_signin_btn_icon_dark_normal_background.9.png",
         "source": "/Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.2.0/res/drawable-hdpi-v4/common_google_signin_btn_icon_dark_normal_background.9.png"
-    },
-    {
-        "merged": "/Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/build/intermediates/res/merged/debug/drawable-hdpi-v4/image_border.xml",
-        "source": "/Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/src/main/res/drawable-hdpi/image_border.xml"
-    },
-    {
-        "merged": "/Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/build/intermediates/res/merged/debug/drawable-hdpi-v4/common_full_open_on_phone.png",
-        "source": "/Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.2.0/res/drawable-hdpi-v4/common_full_open_on_phone.png"
     },
     {
         "merged": "/Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/build/intermediates/res/merged/debug/drawable-hdpi-v4/common_google_signin_btn_text_light_normal_background.9.png",
@@ -28,20 +28,116 @@
         "source": "/Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/src/main/res/drawable-hdpi/background.xml"
     },
     {
+        "merged": "/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPOK-V2/Application/build/intermediates/res/merged/debug/drawable-hdpi-v4/common_google_signin_btn_icon_dark_normal_background.9.png",
+        "source": "/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPOK-V2/Application/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.2.0/res/drawable-hdpi-v4/common_google_signin_btn_icon_dark_normal_background.9.png"
+    },
+    {
+        "merged": "/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPDEF/Application/build/intermediates/res/merged/debug/drawable-hdpi-v4/googleg_standard_color_18.png",
+        "source": "/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPDEF/Application/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.2.0/res/drawable-hdpi-v4/googleg_standard_color_18.png"
+    },
+    {
+        "merged": "/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPDEF/Application/build/intermediates/res/merged/debug/drawable-hdpi-v4/background.xml",
+        "source": "/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPDEF/Application/src/main/res/drawable-hdpi/background.xml"
+    },
+    {
+        "merged": "/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPOK-V2/Application/build/intermediates/res/merged/debug/drawable-hdpi-v4/googleg_disabled_color_18.png",
+        "source": "/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPOK-V2/Application/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.2.0/res/drawable-hdpi-v4/googleg_disabled_color_18.png"
+    },
+    {
+        "merged": "/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPDEF/Application/build/intermediates/res/merged/debug/drawable-hdpi-v4/mybutton2.xml",
+        "source": "/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPDEF/Application/src/main/res/drawable-hdpi/mybutton2.xml"
+    },
+    {
         "merged": "/Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/build/intermediates/res/merged/debug/drawable-hdpi-v4/mybutton2.xml",
         "source": "/Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/src/main/res/drawable-hdpi/mybutton2.xml"
     },
     {
-        "merged": "/Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/build/intermediates/res/merged/debug/drawable-hdpi-v4/googleg_disabled_color_18.png",
-        "source": "/Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.2.0/res/drawable-hdpi-v4/googleg_disabled_color_18.png"
+        "merged": "/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPOK-V2/Application/build/intermediates/res/merged/debug/drawable-hdpi-v4/common_full_open_on_phone.png",
+        "source": "/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPOK-V2/Application/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.2.0/res/drawable-hdpi-v4/common_full_open_on_phone.png"
     },
     {
         "merged": "/Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/build/intermediates/res/merged/debug/drawable-hdpi-v4/mybutton.xml",
         "source": "/Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/src/main/res/drawable-hdpi/mybutton.xml"
     },
     {
+        "merged": "/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPOK-V2/Application/build/intermediates/res/merged/debug/drawable-hdpi-v4/background.xml",
+        "source": "/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPOK-V2/Application/src/main/res/drawable-hdpi/background.xml"
+    },
+    {
+        "merged": "/Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/build/intermediates/res/merged/debug/drawable-hdpi-v4/googleg_standard_color_18.png",
+        "source": "/Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.2.0/res/drawable-hdpi-v4/googleg_standard_color_18.png"
+    },
+    {
+        "merged": "/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPOK-V2/Application/build/intermediates/res/merged/debug/drawable-hdpi-v4/common_google_signin_btn_text_light_normal_background.9.png",
+        "source": "/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPOK-V2/Application/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.2.0/res/drawable-hdpi-v4/common_google_signin_btn_text_light_normal_background.9.png"
+    },
+    {
+        "merged": "/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPOK-V2/Application/build/intermediates/res/merged/debug/drawable-hdpi-v4/common_google_signin_btn_icon_light_normal_background.9.png",
+        "source": "/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPOK-V2/Application/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.2.0/res/drawable-hdpi-v4/common_google_signin_btn_icon_light_normal_background.9.png"
+    },
+    {
+        "merged": "/Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/build/intermediates/res/merged/debug/drawable-hdpi-v4/image_border.xml",
+        "source": "/Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/src/main/res/drawable-hdpi/image_border.xml"
+    },
+    {
+        "merged": "/Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/build/intermediates/res/merged/debug/drawable-hdpi-v4/common_full_open_on_phone.png",
+        "source": "/Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.2.0/res/drawable-hdpi-v4/common_full_open_on_phone.png"
+    },
+    {
+        "merged": "/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPDEF/Application/build/intermediates/res/merged/debug/drawable-hdpi-v4/background2.xml",
+        "source": "/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPDEF/Application/src/main/res/drawable-hdpi/background2.xml"
+    },
+    {
+        "merged": "/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPDEF/Application/build/intermediates/res/merged/debug/drawable-hdpi-v4/common_google_signin_btn_icon_dark_normal_background.9.png",
+        "source": "/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPDEF/Application/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.2.0/res/drawable-hdpi-v4/common_google_signin_btn_icon_dark_normal_background.9.png"
+    },
+    {
+        "merged": "/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPOK-V2/Application/build/intermediates/res/merged/debug/drawable-hdpi-v4/common_google_signin_btn_text_dark_normal_background.9.png",
+        "source": "/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPOK-V2/Application/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.2.0/res/drawable-hdpi-v4/common_google_signin_btn_text_dark_normal_background.9.png"
+    },
+    {
+        "merged": "/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPDEF/Application/build/intermediates/res/merged/debug/drawable-hdpi-v4/common_full_open_on_phone.png",
+        "source": "/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPDEF/Application/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.2.0/res/drawable-hdpi-v4/common_full_open_on_phone.png"
+    },
+    {
+        "merged": "/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPDEF/Application/build/intermediates/res/merged/debug/drawable-hdpi-v4/common_google_signin_btn_icon_light_normal_background.9.png",
+        "source": "/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPDEF/Application/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.2.0/res/drawable-hdpi-v4/common_google_signin_btn_icon_light_normal_background.9.png"
+    },
+    {
+        "merged": "/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPOK-V2/Application/build/intermediates/res/merged/debug/drawable-hdpi-v4/mybutton2.xml",
+        "source": "/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPOK-V2/Application/src/main/res/drawable-hdpi/mybutton2.xml"
+    },
+    {
+        "merged": "/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPDEF/Application/build/intermediates/res/merged/debug/drawable-hdpi-v4/common_google_signin_btn_text_light_normal_background.9.png",
+        "source": "/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPDEF/Application/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.2.0/res/drawable-hdpi-v4/common_google_signin_btn_text_light_normal_background.9.png"
+    },
+    {
+        "merged": "/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPDEF/Application/build/intermediates/res/merged/debug/drawable-hdpi-v4/common_google_signin_btn_text_dark_normal_background.9.png",
+        "source": "/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPDEF/Application/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.2.0/res/drawable-hdpi-v4/common_google_signin_btn_text_dark_normal_background.9.png"
+    },
+    {
+        "merged": "/Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/build/intermediates/res/merged/debug/drawable-hdpi-v4/googleg_disabled_color_18.png",
+        "source": "/Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.2.0/res/drawable-hdpi-v4/googleg_disabled_color_18.png"
+    },
+    {
+        "merged": "/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPOK-V2/Application/build/intermediates/res/merged/debug/drawable-hdpi-v4/googleg_standard_color_18.png",
+        "source": "/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPOK-V2/Application/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.2.0/res/drawable-hdpi-v4/googleg_standard_color_18.png"
+    },
+    {
+        "merged": "/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPDEF/Application/build/intermediates/res/merged/debug/drawable-hdpi-v4/googleg_disabled_color_18.png",
+        "source": "/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPDEF/Application/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.2.0/res/drawable-hdpi-v4/googleg_disabled_color_18.png"
+    },
+    {
         "merged": "/Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/build/intermediates/res/merged/debug/drawable-hdpi-v4/common_google_signin_btn_text_dark_normal_background.9.png",
         "source": "/Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.2.0/res/drawable-hdpi-v4/common_google_signin_btn_text_dark_normal_background.9.png"
+    },
+    {
+        "merged": "/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPOK-V2/Application/build/intermediates/res/merged/debug/drawable-hdpi-v4/background2.xml",
+        "source": "/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPOK-V2/Application/src/main/res/drawable-hdpi/background2.xml"
+    },
+    {
+        "merged": "/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPOK-V2/Application/build/intermediates/res/merged/debug/drawable-hdpi-v4/image_border.xml",
+        "source": "/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPOK-V2/Application/src/main/res/drawable-hdpi/image_border.xml"
     },
     {
         "merged": "/Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/build/intermediates/res/merged/debug/drawable-hdpi-v4/background2.xml",

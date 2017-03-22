@@ -4,7 +4,23 @@
         "source": "/Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/src/main/res/menu/gatt_services.xml"
     },
     {
+        "merged": "/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPOK-V2/Application/build/intermediates/res/merged/debug/menu/gatt_services.xml",
+        "source": "/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPOK-V2/Application/src/main/res/menu/gatt_services.xml"
+    },
+    {
+        "merged": "/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPOK-V2/Application/build/intermediates/res/merged/debug/menu/main.xml",
+        "source": "/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPOK-V2/Application/src/main/res/menu/main.xml"
+    },
+    {
         "merged": "/Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/build/intermediates/res/merged/debug/menu/main.xml",
         "source": "/Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/src/main/res/menu/main.xml"
+    },
+    {
+        "merged": "/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPDEF/Application/build/intermediates/res/merged/debug/menu/main.xml",
+        "source": "/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPDEF/Application/src/main/res/menu/main.xml"
+    },
+    {
+        "merged": "/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPDEF/Application/build/intermediates/res/merged/debug/menu/gatt_services.xml",
+        "source": "/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPDEF/Application/src/main/res/menu/gatt_services.xml"
     }
 ]

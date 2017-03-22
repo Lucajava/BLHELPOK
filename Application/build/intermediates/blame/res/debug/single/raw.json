@@ -1,14 +1,38 @@
 [
     {
+        "merged": "/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPDEF/Application/build/intermediates/res/merged/debug/raw/moltobello.mp3",
+        "source": "/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPDEF/Application/src/main/res/raw/moltobello.mp3"
+    },
+    {
         "merged": "/Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/build/intermediates/res/merged/debug/raw/vergogna.mp3",
         "source": "/Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/src/main/res/raw/vergogna.mp3"
+    },
+    {
+        "merged": "/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPDEF/Application/build/intermediates/res/merged/debug/raw/sticazzi.mp3",
+        "source": "/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPDEF/Application/src/main/res/raw/sticazzi.mp3"
     },
     {
         "merged": "/Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/build/intermediates/res/merged/debug/raw/moltobello.mp3",
         "source": "/Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/src/main/res/raw/moltobello.mp3"
     },
     {
+        "merged": "/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPDEF/Application/build/intermediates/res/merged/debug/raw/vergogna.mp3",
+        "source": "/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPDEF/Application/src/main/res/raw/vergogna.mp3"
+    },
+    {
+        "merged": "/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPOK-V2/Application/build/intermediates/res/merged/debug/raw/moltobello.mp3",
+        "source": "/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPOK-V2/Application/src/main/res/raw/moltobello.mp3"
+    },
+    {
         "merged": "/Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/build/intermediates/res/merged/debug/raw/sticazzi.mp3",
         "source": "/Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/src/main/res/raw/sticazzi.mp3"
+    },
+    {
+        "merged": "/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPOK-V2/Application/build/intermediates/res/merged/debug/raw/vergogna.mp3",
+        "source": "/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPOK-V2/Application/src/main/res/raw/vergogna.mp3"
+    },
+    {
+        "merged": "/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPOK-V2/Application/build/intermediates/res/merged/debug/raw/sticazzi.mp3",
+        "source": "/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPOK-V2/Application/src/main/res/raw/sticazzi.mp3"
     }
 ]

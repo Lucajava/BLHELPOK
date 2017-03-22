@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPOK-V2/Application/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/10.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.0"
+        sha1="6da05b7498da036b5b37c3beb861cd2060929dcd">
+        <dex dex="/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPOK-V2/Application/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-maps-10.2.0_e87dc9f522fd3da2c5eb6ed1466d3b337e6b2294.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPDEF/Application/build/intermediates/exploded-aar/com.android.support/support-v13/23.0.0/jars/libs/internal_impl-23.0.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.0"
+        sha1="5d4bccb885c8a89d066ecb6c4addb553a99a79a2">
+        <dex dex="/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPDEF/Application/build/intermediates/pre-dexed/debug/internal_impl-23.0.0_b27f95bd35432b1589e5ce206f66ee690df1b1b6.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPOK-V2/Application/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.0"
+        sha1="3d13e510077b35fe8e49930a627dd849ad5da0dc">
+        <dex dex="/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPOK-V2/Application/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-base-10.2.0_29d2fb6022d0089f3c6d0ac485140e8a0bf9873f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPDEF/Application/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/10.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.0"
+        sha1="6da05b7498da036b5b37c3beb861cd2060929dcd">
+        <dex dex="/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPDEF/Application/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-maps-10.2.0_99fd51361d2f782ca59c7f412e08b84436c08a11.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPDEF/Application/build/intermediates/exploded-aar/com.android.support/support-v13/23.0.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.0"
+        sha1="bb0ac3f3ee2d71854501cc28e52cc84a20209b41">
+        <dex dex="/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPDEF/Application/build/intermediates/pre-dexed/debug/com.android.support-support-v13-23.0.0_5ebdb1c296c2b7e690c70adcbcbbc49995356b60.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPDEF/Application/build/intermediates/exploded-aar/com.frosquivel/magicaltakephoto/1.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.0"
+        sha1="b65368f7af5fe8c4e2cb47bc27c784774ae6c10f">
+        <dex dex="/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPDEF/Application/build/intermediates/pre-dexed/debug/com.frosquivel-magicaltakephoto-1.0_38c4a5c5bf6a9adf9234066d59abbdac6890a102.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPDEF/Application/build/intermediates/exploded-aar/com.google.android.gms/play-services-tasks/10.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.0"
+        sha1="bd75f9f0296fe220da6d0ad961831b04541c4452">
+        <dex dex="/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPDEF/Application/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-tasks-10.2.0_3d3be1ad91238e75d46b738038b1480a8334f92d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPDEF/Application/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.0"
+        sha1="5c5699834e9722f1c288fea2de82725d078ba127">
+        <dex dex="/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPDEF/Application/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-23.1.1_19fe0f8d4790810671f97e013a6640a2a04c5578.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPDEF/Application/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.0"
+        sha1="3d13e510077b35fe8e49930a627dd849ad5da0dc">
+        <dex dex="/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPDEF/Application/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-base-10.2.0_23d3601274540c791c1d000f4f5294af91ff69c0.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPDEF/Application/build/intermediates/exploded-aar/com.android.support/cardview-v7/23.0.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.0"
+        sha1="1ccbc26be2c465c622a48310e8092241b01abe80">
+        <dex dex="/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPDEF/Application/build/intermediates/pre-dexed/debug/com.android.support-cardview-v7-23.0.0_e137024a4231bf36780c0dc5f370b6ece891c43d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPOK-V2/Application/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.0"
+        sha1="5c5699834e9722f1c288fea2de82725d078ba127">
+        <dex dex="/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPOK-V2/Application/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-23.1.1_3f5004f2e6e920829113e152641cbfbafafee69a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPDEF/Application/build/intermediates/exploded-aar/de.hdodenhof/circleimageview/2.1.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.0"
+        sha1="a2af9c72ccaa4c5c049b500ca6ea664a4ce1f7d4">
+        <dex dex="/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPDEF/Application/build/intermediates/pre-dexed/debug/de.hdodenhof-circleimageview-2.1.0_a1f5d145742f37fb13e9867a80536a08a605a94a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPOK-V2/Application/build/intermediates/exploded-aar/com.google.android.gms/play-services-tasks/10.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.0"
+        sha1="bd75f9f0296fe220da6d0ad961831b04541c4452">
+        <dex dex="/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPOK-V2/Application/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-tasks-10.2.0_191db347e35490ae9a61222db7843eddfa55e1d1.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPOK-V2/Application/build/intermediates/exploded-aar/com.android.support/support-v4/24.0.0/jars/libs/internal_impl-24.0.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.0"
+        sha1="fcaf463e10e69c1923ccf1edeba3b4196d239e00">
+        <dex dex="/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPOK-V2/Application/build/intermediates/pre-dexed/debug/internal_impl-24.0.0_2064bba0d54700d052fd405c747a7b39b4ce0071.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPDEF/Application/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/10.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.0"
+        sha1="1ac56e5801e986583cbe27f2cce57f626cc7ff93">
+        <dex dex="/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPDEF/Application/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-basement-10.2.0_05bd6445910b6698d77cacfba7a4b9a48c164425.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPOK-V2/Application/build/intermediates/exploded-aar/de.hdodenhof/circleimageview/2.1.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.0"
+        sha1="a2af9c72ccaa4c5c049b500ca6ea664a4ce1f7d4">
+        <dex dex="/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPOK-V2/Application/build/intermediates/pre-dexed/debug/de.hdodenhof-circleimageview-2.1.0_374ad74136149e35b320ab42ca6f1f88f2d13bcc.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Luca/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/24.0.0/support-annotations-24.0.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.0"
+        sha1="2943c74db6d4346ab8c6531adac91fa05c137c40">
+        <dex dex="/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPOK-V2/Application/build/intermediates/pre-dexed/debug/support-annotations-24.0.0_cc070f217f17382f997f1e8386342cff3c8450ca.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPOK-V2/Application/build/intermediates/exploded-aar/com.android.support/support-v13/23.0.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.0"
+        sha1="bb0ac3f3ee2d71854501cc28e52cc84a20209b41">
+        <dex dex="/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPOK-V2/Application/build/intermediates/pre-dexed/debug/com.android.support-support-v13-23.0.0_be3172db5b46c85d440a25bd3e8c546bcda481ef.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPOK-V2/Application/build/intermediates/exploded-aar/com.android.support/support-v13/23.0.0/jars/libs/internal_impl-23.0.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.0"
+        sha1="5d4bccb885c8a89d066ecb6c4addb553a99a79a2">
+        <dex dex="/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPOK-V2/Application/build/intermediates/pre-dexed/debug/internal_impl-23.0.0_ed1168c317fbde83dd35d41cb04096579906fa33.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPOK-V2/Application/build/intermediates/exploded-aar/com.frosquivel/magicaltakephoto/1.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.0"
+        sha1="b65368f7af5fe8c4e2cb47bc27c784774ae6c10f">
+        <dex dex="/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPOK-V2/Application/build/intermediates/pre-dexed/debug/com.frosquivel-magicaltakephoto-1.0_cf024933bc2d63e3fd6ad9aea18bf8a835a7ada2.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPDEF/Application/build/intermediates/exploded-aar/com.android.support/support-v4/24.0.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.0"
+        sha1="2f7e6e2dad1bccaf68a8820820adc6c0d5b96d37">
+        <dex dex="/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPDEF/Application/build/intermediates/pre-dexed/debug/com.android.support-support-v4-24.0.0_52b1cb0455e9099674053e7f114c5ccdfd041c65.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPDEF/Application/build/intermediates/exploded-aar/com.android.support/support-v4/24.0.0/jars/libs/internal_impl-24.0.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.0"
+        sha1="fcaf463e10e69c1923ccf1edeba3b4196d239e00">
+        <dex dex="/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPDEF/Application/build/intermediates/pre-dexed/debug/internal_impl-24.0.0_b902399166102dd6af996951416101b4cf41b3de.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPOK-V2/Application/build/intermediates/exploded-aar/com.android.support/cardview-v7/23.0.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.0"
+        sha1="1ccbc26be2c465c622a48310e8092241b01abe80">
+        <dex dex="/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPOK-V2/Application/build/intermediates/pre-dexed/debug/com.android.support-cardview-v7-23.0.0_d896bf35af622c82b3fa51cf94afb35bd8c27755.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPOK-V2/Application/build/intermediates/exploded-aar/com.android.support/support-v4/24.0.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.0"
+        sha1="2f7e6e2dad1bccaf68a8820820adc6c0d5b96d37">
+        <dex dex="/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPOK-V2/Application/build/intermediates/pre-dexed/debug/com.android.support-support-v4-24.0.0_82690b09d47249772bd255843ba0500ccb55f67d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPOK-V2/Application/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/10.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.0"
+        sha1="1ac56e5801e986583cbe27f2cce57f626cc7ff93">
+        <dex dex="/Users/Luca/Desktop/Android-Project/BluetoothLowEnergy/BLHELPOK-V2/Application/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-basement-10.2.0_4ee3e2bc35384f5e15ce7dbe7e679052d3d871f9.jar" />
+    </item>
+
+</items>

@@ -12,6 +12,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.media.Ringtone;
 import android.media.RingtoneManager;
@@ -19,10 +20,14 @@ import android.net.Uri;
 import android.os.Binder;
 import android.os.Handler;
 import android.os.IBinder;
+import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import static com.dstech.android.blhelp.DeviceScanActivity.DEVICE_ADDRESS;
+import static com.dstech.android.blhelp.DeviceScanActivity.getDefaults;
 
 
 /**
@@ -30,14 +35,15 @@ import android.widget.Toast;
  */
 
 public class BleBackgroundService extends Service {
-
+    String mDeviceAddress=null;
     private BluetoothAdapter mBluetoothAdapter;
     private Handler mHandler;
     private final String TAG = "BleBackgroundService";
-    private static final long SCAN_PERIOD = 10000;
+    private static final long SCAN_PERIOD = 1000000;
     private final IBinder mBinder = new BleBackgroundBinder();
     private BluetoothLeService mBluetoothLeService;
-    private String mDeviceAddress;
+
+
     private BluetoothAdapter.LeScanCallback mLeScanCallback;
 
     // Code to manage Service lifecycle.
@@ -45,6 +51,7 @@ public class BleBackgroundService extends Service {
 
         @Override
         public void onServiceConnected(ComponentName componentName, IBinder service) {
+
             mBluetoothLeService = ((BluetoothLeService.LocalBinder) service).getService();
             Log.d(TAG,"onServiceConnected del tentativo di connession a LeService");
             if (!mBluetoothLeService.initialize()) {
@@ -59,7 +66,7 @@ public class BleBackgroundService extends Service {
                 public void run() {
                     while (!Thread.interrupted())
                         try {
-                            Thread.sleep(1000);
+                            Thread.sleep(100000);
                             new Runnable()
                             {
                                 @Override
@@ -88,7 +95,9 @@ public class BleBackgroundService extends Service {
         super.onCreate();
         Log.d(TAG, "BleBackgroundService");
         mHandler = new Handler();
-
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        mDeviceAddress= preferences.getString(DEVICE_ADDRESS,"");
+        Log.d("deviceaddress", mDeviceAddress);
         if (!getPackageManager().hasSystemFeature(PackageManager.FEATURE_BLUETOOTH_LE)) {
             Toast.makeText(this, R.string.ble_not_supported, Toast.LENGTH_SHORT).show();
             stopSelf();
@@ -117,15 +126,15 @@ public class BleBackgroundService extends Service {
         }
 
         Log.d(TAG, "Tentativo di far partire lo scan");
-        if(!isAplicationOpen()){
+     //   if(!isAplicationOpen()){
             Log.d(TAG, "è partito lo scan");
             mLeScanCallback=resetLeScanCallBack();
             scanLeDevice(true);
-        }
+      //  }
     }
 
     public boolean isAplicationOpen() {
-        return DeviceScanActivity.getDefaults(DeviceScanActivity.APPLICATION_RUN, this)!=null? DeviceScanActivity.getDefaults(DeviceScanActivity.APPLICATION_RUN, this).equals("1"):true;
+        return getDefaults(DeviceScanActivity.APPLICATION_RUN, this)!=null? getDefaults(DeviceScanActivity.APPLICATION_RUN, this).equals("1"):true;
 
     }
 
@@ -180,14 +189,14 @@ public class BleBackgroundService extends Service {
     }
 
     public void connectBluetoothLeService(){
-        mDeviceAddress = DeviceScanActivity.getDefaults(DeviceScanActivity.DEVICE_ADDRESS, this);
+        mDeviceAddress = getDefaults(DEVICE_ADDRESS, this);
         Intent gattServiceIntent = new Intent(this, BluetoothLeService.class);
         Log.d(TAG,"tentativo connession a LeService");
         bindService(gattServiceIntent, mServiceConnection, BIND_AUTO_CREATE);
     }
 
     public void verificateDeviceAddress(String address){
-        mDeviceAddress = DeviceScanActivity.getDefaults(DeviceScanActivity.DEVICE_ADDRESS, this);
+        mDeviceAddress = getDefaults(DEVICE_ADDRESS, this);
         if(address.contains(mDeviceAddress)){
             Intent gattServiceIntent = new Intent(this, BluetoothLeService.class);
             Log.d(TAG,"tentativo connession a LeService");
@@ -284,6 +293,11 @@ public class BleBackgroundService extends Service {
         intentFilter.addAction(BluetoothLeService.ACTION_GATT_SERVICES_DISCOVERED);
         intentFilter.addAction(BluetoothLeService.ACTION_DATA_AVAILABLE);
         return intentFilter;
+    }
+
+    public static String getDefaults(String key, Context context) {
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+        return preferences.getString(key, null);
     }
 
 
