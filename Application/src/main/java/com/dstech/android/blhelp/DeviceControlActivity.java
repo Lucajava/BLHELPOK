@@ -27,16 +27,22 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
 import android.content.SharedPreferences;
+import android.hardware.Camera;
+import android.media.MediaPlayer;
 import android.media.Ringtone;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.os.Environment;
 import android.os.Handler;
 import android.os.IBinder;
+import android.provider.MediaStore;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.SurfaceView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ExpandableListView;
@@ -44,7 +50,11 @@ import android.widget.SimpleExpandableListAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -56,18 +66,19 @@ import java.util.List;
  */
 public class DeviceControlActivity extends Activity {
     private final static String TAG = "DeviceControlActivty";
-
+    public static final String MUSIC = "Music";
     public static final String EXTRAS_DEVICE_NAME = "DEVICE_NAME";
     public static final String EXTRAS_DEVICE_ADDRESS = "DEVICE_ADDRESS";
     public static final String RESET = "com.dstech.android.blhelp.reset";
-
+    private static final int CAMERA_IMAGE_REQUEST = 101;
+    private String imageName;
     private TextView mDataField;
     private String mDeviceName;
     private String mDeviceAddress;
     private boolean mConnected = false;
     private String data;
     private BleBackgroundService bleBackgroundService;
-
+    int CAMERA_PIC_REQUEST= 1;
     private boolean stopReader = false;
 
     private ServiceConnection mConnection = new ServiceConnection() {
@@ -182,7 +193,7 @@ public class DeviceControlActivity extends Activity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        unregisterReceiver(mGattUpdateReceiver);
+        //unregisterReceiver(mGattUpdateReceiver);
     }
 
     @Override
@@ -245,6 +256,12 @@ public class DeviceControlActivity extends Activity {
         }
     }
 
+
+    public void onClickOpenMap(View v) {
+        Intent i= new Intent(this, Localization.class);
+        startActivity(i);
+    }
+
     public void onClickWriteLight(View v) {
         if (bleBackgroundService.getmBluetoothLeService() != null) {
             stopReader=true;
@@ -260,10 +277,25 @@ public class DeviceControlActivity extends Activity {
         }
     }
 
+    public void Camera(View v) {
+        Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
+        startActivity(intent);
+    }
+
+    public void musicfile(View v) {
+        Intent intent = new Intent(DeviceControlActivity.this, MusicFile.class);
+        startActivity(intent);
+    }
+
+    public void sos(View v) {
+        Intent intent = new Intent(DeviceControlActivity.this, ConfigureSOS.class);
+        startActivity(intent);
+    }
+
     private boolean timerInCorso = false;
-    private CountDownTimer timer = resetCounTimer(5000);
+    private CountDownTimer timer = resetCounTimer(2000);
     private int counter = 0;
-    private Uri notification = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+   
 
     private CountDownTimer resetCounTimer(long millisInFuture) {
         timerInCorso = false;
@@ -276,11 +308,14 @@ public class DeviceControlActivity extends Activity {
 
             public void onFinish() {
 
-                ((TextView) findViewById(R.id.txt_timer2)).setText("HAI PREMUTO 5 SECONDI");
 
-                Intent intent = new Intent();
+                final MediaPlayer mp = MediaPlayer.create(getApplicationContext(), R.raw.moltobello);
+
+
+                mp.start();
+              /*  Intent intent = new Intent();
                 intent.setAction("com.cleverdroid.driver.component.Button.1");
-                sendBroadcast(intent);
+                sendBroadcast(intent);*/
 
                 timerInCorso = false;
             }
@@ -288,12 +323,38 @@ public class DeviceControlActivity extends Activity {
     }
 
     private void clickButton(final String data) {
+
         if (data.contains("01")) {
 
-            ((TextView) findViewById(R.id.txt_2)).setText("HAI PREMUTO IL PULSANTE");
+
             if (counter == 0) {
-                Ringtone r = RingtoneManager.getRingtone(getApplicationContext(), notification);
-                r.play();
+                Log.v(TAG, "Initializing sounds...");
+                SharedPreferences pref = getApplicationContext().getSharedPreferences("MyPref", MODE_PRIVATE);
+
+                String musica=pref.getString("key_music", null);
+                Log.d("musica", musica);
+                if (musica.equalsIgnoreCase("EStiCazzi")) {
+                    final MediaPlayer mp = MediaPlayer.create(this, R.raw.sticazzi);
+                    Log.d("entrato sticazzi", musica);
+
+                    mp.start();
+                } else if (musica.equalsIgnoreCase("MoltoBello")){
+                    final MediaPlayer mp = MediaPlayer.create(this, R.raw.moltobello);
+                    Log.d("entrato moltobello", musica);
+                    mp.start();
+                }
+                else if (musica.equalsIgnoreCase("CheVergogna")){
+                    final MediaPlayer mp = MediaPlayer.create(this, R.raw.vergogna);
+                    Log.d("entrato moltobello", musica);
+                    mp.start();
+                }else{
+                    final MediaPlayer mp = MediaPlayer.create(this, R.raw.sticazzi);
+
+
+                    mp.start();
+                }
+
+
             }
 
             if (!timerInCorso) {
@@ -303,7 +364,7 @@ public class DeviceControlActivity extends Activity {
 
         } else if (data.contains("00")) {
             counter = 0;
-            ((TextView) findViewById(R.id.txt_2)).setText("SPENTO");
+
             if (timerInCorso) {
                 timer.cancel();
                 timer = resetCounTimer(5000);
@@ -318,4 +379,20 @@ public class DeviceControlActivity extends Activity {
         DeviceScanActivity.setDefaults(DeviceScanActivity.DEVICE_ADDRESS, null, this);
         onBackPressed();
     }
+
+    @Override
+    public boolean dispatchKeyEvent(KeyEvent event) {
+        int keyCode = event.getKeyCode();
+        switch (keyCode) {
+            case KeyEvent.KEYCODE_VOLUME_UP:
+            case KeyEvent.KEYCODE_VOLUME_DOWN:
+                return true;
+            default:
+                return super.dispatchKeyEvent(event);
+        }
+    }
+
+
+
+
 }

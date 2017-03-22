@@ -1,10 +1,10 @@
 [
     {
-        "merged": "C:\\Users\\basil\\AndroidStudioProjects\\BLHELPOK\\Application\\build\\intermediates\\res\\merged\\debug\\menu\\main.xml",
-        "source": "C:\\Users\\basil\\AndroidStudioProjects\\BLHELPOK\\Application\\src\\main\\res\\menu\\main.xml"
+        "merged": "/Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/build/intermediates/res/merged/debug/menu/gatt_services.xml",
+        "source": "/Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/src/main/res/menu/gatt_services.xml"
     },
     {
-        "merged": "C:\\Users\\basil\\AndroidStudioProjects\\BLHELPOK\\Application\\build\\intermediates\\res\\merged\\debug\\menu\\gatt_services.xml",
-        "source": "C:\\Users\\basil\\AndroidStudioProjects\\BLHELPOK\\Application\\src\\main\\res\\menu\\gatt_services.xml"
+        "merged": "/Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/build/intermediates/res/merged/debug/menu/main.xml",
+        "source": "/Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/src/main/res/menu/main.xml"
     }
 ]

@@ -1,85 +1,195 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\basil\AndroidStudioProjects\BLHELPOK\Application\src\main\AndroidManifest.xml:20:1-51:12
+ADDED from /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/src/main/AndroidManifest.xml:16:1-87:12
 	package
-		ADDED from C:\Users\basil\AndroidStudioProjects\BLHELPOK\Application\src\main\AndroidManifest.xml:21:5-40
+		ADDED from /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/src/main/AndroidManifest.xml:17:5-40
 	android:versionName
-		ADDED from C:\Users\basil\AndroidStudioProjects\BLHELPOK\Application\src\main\AndroidManifest.xml:23:5-30
-		INJECTED from C:\Users\basil\AndroidStudioProjects\BLHELPOK\Application\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\basil\AndroidStudioProjects\BLHELPOK\Application\src\main\AndroidManifest.xml
+		ADDED from /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/src/main/AndroidManifest.xml:19:5-30
+		INJECTED from /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/src/main/AndroidManifest.xml
+		INJECTED from /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/src/main/AndroidManifest.xml
 	android:versionCode
-		ADDED from C:\Users\basil\AndroidStudioProjects\BLHELPOK\Application\src\main\AndroidManifest.xml:22:5-28
-		INJECTED from C:\Users\basil\AndroidStudioProjects\BLHELPOK\Application\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\basil\AndroidStudioProjects\BLHELPOK\Application\src\main\AndroidManifest.xml
+		ADDED from /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/src/main/AndroidManifest.xml:18:5-28
+		INJECTED from /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/src/main/AndroidManifest.xml
+		INJECTED from /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/src/main/AndroidManifest.xml
 	xmlns:android
-		ADDED from C:\Users\basil\AndroidStudioProjects\BLHELPOK\Application\src\main\AndroidManifest.xml:20:11-69
+		ADDED from /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/src/main/AndroidManifest.xml:16:11-69
 uses-feature#android.hardware.bluetooth_le
-ADDED from C:\Users\basil\AndroidStudioProjects\BLHELPOK\Application\src\main\AndroidManifest.xml:31:5-89
+ADDED from /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/src/main/AndroidManifest.xml:30:5-32:35
 	android:required
-		ADDED from C:\Users\basil\AndroidStudioProjects\BLHELPOK\Application\src\main\AndroidManifest.xml:31:64-87
+		ADDED from /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/src/main/AndroidManifest.xml:32:9-32
 	android:name
-		ADDED from C:\Users\basil\AndroidStudioProjects\BLHELPOK\Application\src\main\AndroidManifest.xml:31:19-63
+		ADDED from /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/src/main/AndroidManifest.xml:31:9-53
+uses-permission#android.permission.CAMERA
+ADDED from /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/src/main/AndroidManifest.xml:34:5-65
+	android:name
+		ADDED from /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/src/main/AndroidManifest.xml:34:22-62
 uses-permission#android.permission.BLUETOOTH
-ADDED from C:\Users\basil\AndroidStudioProjects\BLHELPOK\Application\src\main\AndroidManifest.xml:33:5-67
+ADDED from /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/src/main/AndroidManifest.xml:35:5-68
 	android:name
-		ADDED from C:\Users\basil\AndroidStudioProjects\BLHELPOK\Application\src\main\AndroidManifest.xml:33:22-65
+		ADDED from /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/src/main/AndroidManifest.xml:35:22-65
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/src/main/AndroidManifest.xml:36:5-81
+	android:name
+		ADDED from /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/src/main/AndroidManifest.xml:36:22-78
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/src/main/AndroidManifest.xml:37:5-80
+	android:name
+		ADDED from /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/src/main/AndroidManifest.xml:37:22-77
 uses-permission#android.permission.BLUETOOTH_ADMIN
-ADDED from C:\Users\basil\AndroidStudioProjects\BLHELPOK\Application\src\main\AndroidManifest.xml:34:5-73
+ADDED from /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/src/main/AndroidManifest.xml:39:5-74
 	android:name
-		ADDED from C:\Users\basil\AndroidStudioProjects\BLHELPOK\Application\src\main\AndroidManifest.xml:34:22-71
+		ADDED from /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/src/main/AndroidManifest.xml:39:22-71
 uses-permission#android.permission.ACCESS_FINE_LOCATION
-ADDED from C:\Users\basil\AndroidStudioProjects\BLHELPOK\Application\src\main\AndroidManifest.xml:35:5-79
+ADDED from /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/src/main/AndroidManifest.xml:40:5-79
 	android:name
-		ADDED from C:\Users\basil\AndroidStudioProjects\BLHELPOK\Application\src\main\AndroidManifest.xml:35:22-76
+		ADDED from /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/src/main/AndroidManifest.xml:40:22-76
 uses-permission#android.permission.ACCESS_COARSE_LOCATION
-ADDED from C:\Users\basil\AndroidStudioProjects\BLHELPOK\Application\src\main\AndroidManifest.xml:36:5-81
+ADDED from /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/src/main/AndroidManifest.xml:41:5-81
 	android:name
-		ADDED from C:\Users\basil\AndroidStudioProjects\BLHELPOK\Application\src\main\AndroidManifest.xml:36:22-78
+		ADDED from /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/src/main/AndroidManifest.xml:41:22-78
+uses-permission#android.permission.RECEIVE_BOOT_COMPLETED
+ADDED from /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/src/main/AndroidManifest.xml:42:5-81
+	android:name
+		ADDED from /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/src/main/AndroidManifest.xml:42:22-78
 application
-ADDED from C:\Users\basil\AndroidStudioProjects\BLHELPOK\Application\src\main\AndroidManifest.xml:37:5-49:19
-MERGED from [com.android.support:support-v13:23.0.0] C:\Users\basil\AndroidStudioProjects\BLHELPOK\Application\build\intermediates\exploded-aar\com.android.support\support-v13\23.0.0\AndroidManifest.xml:22:5-20
-MERGED from [com.android.support:support-v4:23.0.0] C:\Users\basil\AndroidStudioProjects\BLHELPOK\Application\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.0\AndroidManifest.xml:22:5-20
-MERGED from [com.android.support:cardview-v7:23.0.0] C:\Users\basil\AndroidStudioProjects\BLHELPOK\Application\build\intermediates\exploded-aar\com.android.support\cardview-v7\23.0.0\AndroidManifest.xml:22:5-20
+ADDED from /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/src/main/AndroidManifest.xml:44:5-85:19
+MERGED from [com.android.support:support-v13:23.0.0] /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/build/intermediates/exploded-aar/com.android.support/support-v13/23.0.0/AndroidManifest.xml:22:5-20
+MERGED from [com.frosquivel:magicaltakephoto:1.0] /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/build/intermediates/exploded-aar/com.frosquivel/magicaltakephoto/1.0/AndroidManifest.xml:11:5-15:19
+MERGED from [com.android.support:appcompat-v7:23.1.1] /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:cardview-v7:23.0.0] /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/build/intermediates/exploded-aar/com.android.support/cardview-v7/23.0.0/AndroidManifest.xml:22:5-20
+MERGED from [de.hdodenhof:circleimageview:2.1.0] /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/build/intermediates/exploded-aar/de.hdodenhof/circleimageview/2.1.0/AndroidManifest.xml:9:5-20
+MERGED from [com.google.android.gms:play-services-maps:10.2.0] /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/10.2.0/AndroidManifest.xml:24:5-19
+MERGED from [com.google.android.gms:play-services-base:10.2.0] /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.2.0/AndroidManifest.xml:18:5-20:19
+MERGED from [com.google.android.gms:play-services-tasks:10.2.0] /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/build/intermediates/exploded-aar/com.google.android.gms/play-services-tasks/10.2.0/AndroidManifest.xml:4:5-19
+MERGED from [com.google.android.gms:play-services-basement:10.2.0] /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/10.2.0/AndroidManifest.xml:19:5-21:19
+MERGED from [com.android.support:support-v4:24.0.0] /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/build/intermediates/exploded-aar/com.android.support/support-v4/24.0.0/AndroidManifest.xml:25:5-20
 	android:label
-		ADDED from C:\Users\basil\AndroidStudioProjects\BLHELPOK\Application\src\main\AndroidManifest.xml:37:18-50
+		ADDED from /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/src/main/AndroidManifest.xml:46:9-41
+	android:supportsRtl
+		ADDED from [com.frosquivel:magicaltakephoto:1.0] /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/build/intermediates/exploded-aar/com.frosquivel/magicaltakephoto/1.0/AndroidManifest.xml:14:9-35
 	android:icon
-		ADDED from C:\Users\basil\AndroidStudioProjects\BLHELPOK\Application\src\main\AndroidManifest.xml:38:9-45
+		ADDED from /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/src/main/AndroidManifest.xml:45:9-45
+	android:allowBackup
+		ADDED from [com.frosquivel:magicaltakephoto:1.0] /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/build/intermediates/exploded-aar/com.frosquivel/magicaltakephoto/1.0/AndroidManifest.xml:12:9-35
 	android:theme
-		ADDED from C:\Users\basil\AndroidStudioProjects\BLHELPOK\Application\src\main\AndroidManifest.xml:39:9-56
+		ADDED from /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/src/main/AndroidManifest.xml:47:9-56
 activity#com.dstech.android.blhelp.DeviceScanActivity
-ADDED from C:\Users\basil\AndroidStudioProjects\BLHELPOK\Application\src\main\AndroidManifest.xml:40:9-46:20
+ADDED from /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/src/main/AndroidManifest.xml:48:9-56:20
 	android:label
-		ADDED from C:\Users\basil\AndroidStudioProjects\BLHELPOK\Application\src\main\AndroidManifest.xml:41:13-45
+		ADDED from /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/src/main/AndroidManifest.xml:50:13-45
 	android:name
-		ADDED from C:\Users\basil\AndroidStudioProjects\BLHELPOK\Application\src\main\AndroidManifest.xml:40:19-53
+		ADDED from /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/src/main/AndroidManifest.xml:49:13-47
 intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
-ADDED from C:\Users\basil\AndroidStudioProjects\BLHELPOK\Application\src\main\AndroidManifest.xml:42:13-45:29
+ADDED from /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/src/main/AndroidManifest.xml:51:13-55:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\basil\AndroidStudioProjects\BLHELPOK\Application\src\main\AndroidManifest.xml:43:17-68
+ADDED from /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/src/main/AndroidManifest.xml:52:17-69
 	android:name
-		ADDED from C:\Users\basil\AndroidStudioProjects\BLHELPOK\Application\src\main\AndroidManifest.xml:43:25-66
+		ADDED from /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/src/main/AndroidManifest.xml:52:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\basil\AndroidStudioProjects\BLHELPOK\Application\src\main\AndroidManifest.xml:44:17-76
+ADDED from /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/src/main/AndroidManifest.xml:54:17-77
 	android:name
-		ADDED from C:\Users\basil\AndroidStudioProjects\BLHELPOK\Application\src\main\AndroidManifest.xml:44:27-74
+		ADDED from /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/src/main/AndroidManifest.xml:54:27-74
+activity#com.dstech.android.blhelp.Localization
+ADDED from /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/src/main/AndroidManifest.xml:57:9-59:54
+	android:theme
+		ADDED from /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/src/main/AndroidManifest.xml:59:13-51
+	android:name
+		ADDED from /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/src/main/AndroidManifest.xml:58:13-41
 activity#com.dstech.android.blhelp.DeviceControlActivity
-ADDED from C:\Users\basil\AndroidStudioProjects\BLHELPOK\Application\src\main\AndroidManifest.xml:47:9-58
+ADDED from /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/src/main/AndroidManifest.xml:60:9-59
 	android:name
-		ADDED from C:\Users\basil\AndroidStudioProjects\BLHELPOK\Application\src\main\AndroidManifest.xml:47:19-56
+		ADDED from /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/src/main/AndroidManifest.xml:60:19-56
 service#com.dstech.android.blhelp.BluetoothLeService
-ADDED from C:\Users\basil\AndroidStudioProjects\BLHELPOK\Application\src\main\AndroidManifest.xml:48:9-77
+ADDED from /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/src/main/AndroidManifest.xml:62:9-64:38
 	android:enabled
-		ADDED from C:\Users\basil\AndroidStudioProjects\BLHELPOK\Application\src\main\AndroidManifest.xml:48:53-75
+		ADDED from /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/src/main/AndroidManifest.xml:64:13-35
 	android:name
-		ADDED from C:\Users\basil\AndroidStudioProjects\BLHELPOK\Application\src\main\AndroidManifest.xml:48:18-52
+		ADDED from /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/src/main/AndroidManifest.xml:63:13-47
+service#com.dstech.android.blhelp.BleBackgroundService
+ADDED from /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/src/main/AndroidManifest.xml:65:9-57
+	android:name
+		ADDED from /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/src/main/AndroidManifest.xml:65:18-54
+receiver#com.dstech.android.blhelp.BootUpReceiver
+ADDED from /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/src/main/AndroidManifest.xml:67:9-76:20
+	android:enabled
+		ADDED from /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/src/main/AndroidManifest.xml:69:13-35
+	android:permission
+		ADDED from /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/src/main/AndroidManifest.xml:70:13-75
+	android:name
+		ADDED from /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/src/main/AndroidManifest.xml:68:13-43
+intent-filter#android.intent.action.BOOT_COMPLETED+android.intent.category.DEFAULT
+ADDED from /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/src/main/AndroidManifest.xml:71:13-75:29
+action#android.intent.action.BOOT_COMPLETED
+ADDED from /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/src/main/AndroidManifest.xml:72:17-79
+	android:name
+		ADDED from /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/src/main/AndroidManifest.xml:72:25-76
+category#android.intent.category.DEFAULT
+ADDED from /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/src/main/AndroidManifest.xml:74:17-76
+	android:name
+		ADDED from /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/src/main/AndroidManifest.xml:74:27-73
+meta-data#com.google.android.geo.API_KEY
+ADDED from /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/src/main/AndroidManifest.xml:78:9-80:71
+	android:value
+		ADDED from /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/src/main/AndroidManifest.xml:80:13-68
+	android:name
+		ADDED from /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/src/main/AndroidManifest.xml:79:13-58
+activity#com.dstech.android.blhelp.MusicFile
+ADDED from /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/src/main/AndroidManifest.xml:82:9-83:54
+	android:theme
+		ADDED from /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/src/main/AndroidManifest.xml:83:13-51
+	android:name
+		ADDED from /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/src/main/AndroidManifest.xml:82:19-44
+activity#com.dstech.android.blhelp.ConfigureSOS
+ADDED from /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/src/main/AndroidManifest.xml:84:9-90
+	android:theme
+		ADDED from /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/src/main/AndroidManifest.xml:84:49-87
+	android:name
+		ADDED from /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/src/main/AndroidManifest.xml:84:19-47
 uses-sdk
-INJECTED from C:\Users\basil\AndroidStudioProjects\BLHELPOK\Application\src\main\AndroidManifest.xml reason: use-sdk injection requested
-MERGED from [com.android.support:support-v13:23.0.0] C:\Users\basil\AndroidStudioProjects\BLHELPOK\Application\build\intermediates\exploded-aar\com.android.support\support-v13\23.0.0\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-v4:23.0.0] C:\Users\basil\AndroidStudioProjects\BLHELPOK\Application\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.0\AndroidManifest.xml:20:5-43
-MERGED from [com.android.support:cardview-v7:23.0.0] C:\Users\basil\AndroidStudioProjects\BLHELPOK\Application\build\intermediates\exploded-aar\com.android.support\cardview-v7\23.0.0\AndroidManifest.xml:20:5-43
+INJECTED from /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/src/main/AndroidManifest.xml reason: use-sdk injection requested
+MERGED from [com.android.support:support-v13:23.0.0] /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/build/intermediates/exploded-aar/com.android.support/support-v13/23.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.frosquivel:magicaltakephoto:1.0] /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/build/intermediates/exploded-aar/com.frosquivel/magicaltakephoto/1.0/AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:appcompat-v7:23.1.1] /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:cardview-v7:23.0.0] /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/build/intermediates/exploded-aar/com.android.support/cardview-v7/23.0.0/AndroidManifest.xml:20:5-43
+MERGED from [de.hdodenhof:circleimageview:2.1.0] /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/build/intermediates/exploded-aar/de.hdodenhof/circleimageview/2.1.0/AndroidManifest.xml:5:5-7:41
+MERGED from [com.google.android.gms:play-services-maps:10.2.0] /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/10.2.0/AndroidManifest.xml:23:5-43
+MERGED from [com.google.android.gms:play-services-base:10.2.0] /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.2.0/AndroidManifest.xml:17:5-43
+MERGED from [com.google.android.gms:play-services-tasks:10.2.0] /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/build/intermediates/exploded-aar/com.google.android.gms/play-services-tasks/10.2.0/AndroidManifest.xml:3:5-43
+MERGED from [com.google.android.gms:play-services-basement:10.2.0] /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/10.2.0/AndroidManifest.xml:17:5-43
+MERGED from [com.android.support:support-v4:24.0.0] /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/build/intermediates/exploded-aar/com.android.support/support-v4/24.0.0/AndroidManifest.xml:21:5-23:54
+	tools:overrideLibrary
+		ADDED from [com.android.support:support-v4:24.0.0] /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/build/intermediates/exploded-aar/com.android.support/support-v4/24.0.0/AndroidManifest.xml:23:9-51
 	android:targetSdkVersion
-		INJECTED from C:\Users\basil\AndroidStudioProjects\BLHELPOK\Application\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\basil\AndroidStudioProjects\BLHELPOK\Application\src\main\AndroidManifest.xml
+		INJECTED from /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/src/main/AndroidManifest.xml
+		INJECTED from /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/src/main/AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from C:\Users\basil\AndroidStudioProjects\BLHELPOK\Application\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\basil\AndroidStudioProjects\BLHELPOK\Application\src\main\AndroidManifest.xml
+		INJECTED from /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/src/main/AndroidManifest.xml
+		INJECTED from /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/src/main/AndroidManifest.xml
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from [com.google.android.gms:play-services-maps:10.2.0] /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/10.2.0/AndroidManifest.xml:19:5-78
+	android:name
+		ADDED from [com.google.android.gms:play-services-maps:10.2.0] /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/10.2.0/AndroidManifest.xml:19:22-76
+uses-permission#android.permission.INTERNET
+ADDED from [com.google.android.gms:play-services-maps:10.2.0] /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/10.2.0/AndroidManifest.xml:20:5-66
+	android:name
+		ADDED from [com.google.android.gms:play-services-maps:10.2.0] /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/10.2.0/AndroidManifest.xml:20:22-64
+uses-feature#0x00020000
+ADDED from [com.google.android.gms:play-services-maps:10.2.0] /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/10.2.0/AndroidManifest.xml:21:5-77
+	android:glEsVersion
+		ADDED from [com.google.android.gms:play-services-maps:10.2.0] /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/10.2.0/AndroidManifest.xml:21:19-51
+	android:required
+		ADDED from [com.google.android.gms:play-services-maps:10.2.0] /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/10.2.0/AndroidManifest.xml:21:52-75
+activity#com.google.android.gms.common.api.GoogleApiActivity
+ADDED from [com.google.android.gms:play-services-base:10.2.0] /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.2.0/AndroidManifest.xml:19:9-172
+	android:exported
+		ADDED from [com.google.android.gms:play-services-base:10.2.0] /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.2.0/AndroidManifest.xml:19:146-170
+	android:theme
+		ADDED from [com.google.android.gms:play-services-base:10.2.0] /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.2.0/AndroidManifest.xml:19:86-145
+	android:name
+		ADDED from [com.google.android.gms:play-services-base:10.2.0] /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.2.0/AndroidManifest.xml:19:19-85
+meta-data#com.google.android.gms.version
+ADDED from [com.google.android.gms:play-services-basement:10.2.0] /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/10.2.0/AndroidManifest.xml:20:9-121
+	android:value
+		ADDED from [com.google.android.gms:play-services-basement:10.2.0] /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/10.2.0/AndroidManifest.xml:20:66-119
+	android:name
+		ADDED from [com.google.android.gms:play-services-basement:10.2.0] /Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/10.2.0/AndroidManifest.xml:20:20-65

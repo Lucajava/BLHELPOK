@@ -1,50 +1,240 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content_main"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="15dp">
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Read Char"
-        android:id="@+id/button"
-        android:onClick="onClickRead" />
+    android:background="@drawable/background"
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Sound"
-        android:id="@+id/buttonSound"
-        android:onClick="onClickWriteSound" />
+  >
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Light"
-        android:id="@+id/buttonLight"
-        android:onClick="onClickWriteLight" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/no_data"
-        android:id="@+id/data_value" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="60dp"
+                android:src="@drawable/fromsmart"
+                android:layout_weight="1"/>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:textSize="15dp"
-        android:id="@+id/txt_2" />
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="60dp"
+                android:layout_marginRight="15dp"
+                android:src="@drawable/fromble"
+                android:layout_weight="1"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:textSize="15dp"
-        android:id="@+id/txt_timer2" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_below="@+id/rel"
+            android:layout_gravity="center_horizontal"
+            android:orientation="vertical">
 
-</LinearLayout>
+            <LinearLayout
+                android:layout_width="350dp"
+                android:layout_height="match_parent"
+                android:id="@+id/rel2"
+                android:background="@drawable/background2"
+                android:clickable="true"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal"
+                android:weightSum="3"
+                android:layout_centerHorizontal="true">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/secondary_text"
+                    android:textSize="16dp"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:layout_weight="2"
+                    android:textStyle="bold"
+                    android:layout_marginTop="12dp"
+                    android:id="@+id/textInst"
+                    android:text="CONNETTI BLE DEVICE"/>
+                <ImageView
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:paddingRight="20dp"
+                    android:src="@drawable/update"/>
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="350dp"
+            android:layout_height="360dp"
+            android:id="@+id/rel"
+            android:background="@drawable/image_border"
+            android:clickable="true"
+
+            android:orientation="vertical"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true">
+            <TextView
+                android:text="RANDy"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:visibility="gone"
+                android:textColor="@android:color/white"
+                android:layout_marginRight="5dp"
+                android:layout_marginEnd="5dp"
+
+                android:gravity="center"
+                android:textStyle="bold"
+                android:layout_marginBottom="5dp"
+                android:id="@+id/result" />
+
+
+            <TextView
+                android:layout_width="140dp"
+                android:id="@+id/generating"
+                android:visibility="gone"
+                android:layout_height="100dp"
+                android:layout_below="@+id/generate"
+                android:layout_gravity="center_horizontal"
+                android:text="GEN"
+                android:layout_centerVertical="true"
+                android:paddingTop="20dp"
+                android:textSize="18dp"
+                android:layout_alignLeft="@+id/cameras"
+                android:layout_alignStart="@+id/cameras"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/no_data"
+                android:visibility="invisible"
+                android:id="@+id/data_value" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/img_profile3"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_gravity="left"
+                android:src="@drawable/musicb"
+                app:civ_border_width="2dp"
+                app:civ_border_color="#FFFFFF"
+                android:onClick="musicfile"
+                android:layout_marginBottom="17dp"
+                android:layout_above="@+id/cameras"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/sound"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/music"
+                app:civ_border_width="2dp"
+                app:civ_border_color="#FFFFFF"
+                android:onClick="onClickWriteSound"
+                android:layout_alignTop="@+id/img_profile3"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/geolocal"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/gps"
+                app:civ_border_width="2dp"
+                app:civ_border_color="#FFFFFF"
+                android:onClick="onClickOpenMap"
+                android:layout_marginLeft="19dp"
+                android:layout_marginStart="19dp"
+                android:layout_alignParentBottom="true"
+                android:layout_toRightOf="@+id/result"
+                android:layout_toEndOf="@+id/result" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/sos"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/sos"
+                app:civ_border_width="2dp"
+                app:civ_border_color="#FFFFFF"
+                android:onClick="sos"
+                android:layout_marginRight="16dp"
+                android:layout_marginEnd="13dp"
+                android:layout_above="@+id/img_profile3"
+                android:layout_alignParentEnd="true"
+                android:layout_marginBottom="19dp" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/light"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/light"
+                app:civ_border_width="2dp"
+                app:civ_border_color="#FFFFFF"
+android:onClick="onClickWriteLight"
+                android:layout_alignTop="@+id/sos"
+                android:layout_alignStart="@+id/geolocal" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/cameras"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/camera"
+                app:civ_border_width="2dp"
+                app:civ_border_color="#FFFFFF"
+
+                android:onClick="Camera"
+                android:layout_alignParentBottom="true"
+                android:layout_alignStart="@+id/sos" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/img_result"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/power"
+                app:civ_border_width="10dp"
+                app:civ_border_color="@android:color/white"
+
+                android:layout_above="@+id/geolocal"
+                android:layout_centerHorizontal="true" />
+
+            <TextView
+                android:text="Alarm ON/OFF"
+                android:alpha="0.8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textSOS"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                android:layout_above="@+id/img_result"
+                android:layout_alignStart="@+id/img_result"
+                android:layout_marginBottom="10dp"
+                android:layout_alignEnd="@+id/img_result" />
+
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+

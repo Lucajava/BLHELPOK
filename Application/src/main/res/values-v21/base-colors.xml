@@ -16,6 +16,12 @@
 -->
 
 <resources>
-
-
+    <color name="colorPrimary">#2fabf7</color>
+    <color name="colorPrimaryDark">#5cc1ff</color>
+    <color name="primary_light">#bceaff</color>
+    <color name="colorAccent">#44d63b</color>
+    <color name="primary_text">#212121</color>
+    <color name="secondary_text">#757575</color>
+    <color name="icons">#FFFFFF</color>
+    <color name="divider">#5cc1ff</color>
 </resources>

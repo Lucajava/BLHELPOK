@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2013 The Android Open Source Project
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2013 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -27,11 +26,15 @@
     <string name="connect_device_title">Allert</string>
     <string name="local_service_connected">local service connected</string>
     <string name="local_service_disconnected">local service disconnected</string>
-
+    <string name="musicfile">Music file</string>
     <string name="unknown_device">Device sconosciuto</string>
     <string name="unknown_characteristic">Caratteristica sconosciuta</string>
     <string name="unknown_service">Servizio sconosciuto</string>
-
+    <string-array name="music">
+        <item>EStiCazzi</item>
+        <item>MoltoBello</item>
+        <item>CheVergogna</item>
+    </string-array>
     <!-- Menu items -->
     <string name="menu_connect">Connetti</string>
     <string name="menu_disconnect">Disconnetti</string>

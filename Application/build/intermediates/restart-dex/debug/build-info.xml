@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<instant-run
+    abi="armeabi-v7a,armeabi"
+    api-level="23"
+    density="xhdpi"
+    format="8"
+    plugin-version="2.2.3"
+    timestamp="3037468549656"
+    token="8997346534530663910"
+    verifier="FULL_BUILD_REQUESTED" >
+
+    <task
+        name="javac"
+        duration="2100" />
+    <task
+        name="instant-run-dex"
+        duration="0" />
+    <task
+        name="instant-run-transform"
+        duration="757" />
+    <task
+        name="verifier"
+        duration="90" />
+
+    <artifact
+        location="/Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/build/outputs/apk/Application-debug.apk"
+        type="MAIN" />
+
+    <build
+        timestamp="3037468549656"
+        verifier="FULL_BUILD_REQUESTED" >
+        <artifact
+            location="/Users/Luca/Desktop/BLHELP/BLHELPOK-V2/Application/build/outputs/apk/Application-debug.apk"
+            type="MAIN" />
+    </build>
+
+</instant-run>

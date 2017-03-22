@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_music_file"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.dstech.android.blhelp.MusicFile">
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="30dp"
+    android:textSize="20dp"
+    android:layout_marginBottom="20dp"
+    android:textStyle="bold"
+    android:gravity="center"
+    android:id="@+id/textscegli"
+    android:layout_centerHorizontal="true"
+    android:text="Scegli file musicale singolo clic"/>
+    <Spinner
+        android:id="@+id/spinner1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textscegli"
+        android:entries="@array/music"
+       />
+
+
+
+    <Button
+        android:id="@+id/btnSubmit"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/spinner1"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_height="wrap_content"
+        android:text="Conferma" />
+
+
+
+</RelativeLayout>

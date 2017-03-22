@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="magicaltakephoto-1.0">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/Application/build/intermediates/exploded-aar/com.frosquivel/magicaltakephoto/1.0/jars/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/Application/build/intermediates/exploded-aar/com.frosquivel/magicaltakephoto/1.0/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.frosquivel/magicaltakephoto/1.0/d0f890392795dc872241bd198674884629d44c94/magicaltakephoto-1.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

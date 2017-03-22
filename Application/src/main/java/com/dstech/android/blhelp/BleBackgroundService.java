@@ -1,19 +1,27 @@
 package com.dstech.android.blhelp;
 
+import android.app.Notification;
+import android.app.PendingIntent;
 import android.app.Service;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothManager;
+import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.ServiceConnection;
 import android.content.pm.PackageManager;
+import android.media.Ringtone;
+import android.media.RingtoneManager;
+import android.net.Uri;
 import android.os.Binder;
 import android.os.Handler;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
 import android.util.Log;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -45,7 +53,7 @@ public class BleBackgroundService extends Service {
             }
             // Automatically connects to the device upon successful start-up initialization.
             mBluetoothLeService.connect(mDeviceAddress);
-            /*(new Thread(new Runnable() {
+            (new Thread(new Runnable() {
 
                 @Override
                 public void run() {
@@ -65,7 +73,7 @@ public class BleBackgroundService extends Service {
                             // ooops
                         }
                 }
-            })).start();*/
+            })).start();
             Log.d(TAG, "Tentativo nell'onServiceConnected dell'mServiceConnection");
         }
 
@@ -85,6 +93,17 @@ public class BleBackgroundService extends Service {
             Toast.makeText(this, R.string.ble_not_supported, Toast.LENGTH_SHORT).show();
             stopSelf();
         }
+
+        Intent notificationIntent = new Intent(this, DeviceControlActivity.class);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, notificationIntent, 0);
+
+        Notification notification = new Notification.Builder(this)
+                .setContentTitle("BlE")
+                .setContentText("Running")
+                .setContentIntent(pendingIntent)
+                .build();
+
+        startForeground(1337, notification);
 
         // Initializes a Bluetooth adapter.  For API level 18 and above, get a reference to
         // BluetoothAdapter through BluetoothManager.
@@ -210,7 +229,62 @@ public class BleBackgroundService extends Service {
         };
     }
 
+    private boolean mConnected = false;
+    private String data;
 
+    private final BroadcastReceiver mGattUpdateReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            final String action = intent.getAction();
+            if (BluetoothLeService.ACTION_GATT_CONNECTED.equals(action)) {
+                mConnected = true;
+                Log.d(TAG, "Tentativo nell'OnReceive dell'mGattUpdateReceiver");
+
+            } else if (BluetoothLeService.ACTION_GATT_DISCONNECTED.equals(action)) {
+                mConnected = false;
+
+            } else if (BluetoothLeService.ACTION_GATT_SERVICES_DISCOVERED.equals(action)) {
+
+            } else if (BluetoothLeService.ACTION_DATA_AVAILABLE.equals(action)) {
+
+                data = intent.getStringExtra(BluetoothLeService.EXTRA_DATA);
+                clickButton(data);
+            }
+        }
+    };
+    private int counter = 0;
+    private Uri notification = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+
+    private void clickButton(final String data) {
+        if (data.contains("01")) {
+
+
+            if (counter == 0) {
+                Log.v("BUTTON", "CLICKED");
+                Ringtone r = RingtoneManager.getRingtone(getApplicationContext(), notification);
+                r.play();
+            }
+
+            counter = 1;
+
+        } else if (data.contains("00")) {
+            counter = 0;
+            Log.v("Button", "OFF");
+
+        } else {
+            Log.d("Altro messaggio", data);
+        }
+
+    }
+
+    private static IntentFilter makeGattUpdateIntentFilter() {
+        final IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction(BluetoothLeService.ACTION_GATT_CONNECTED);
+        intentFilter.addAction(BluetoothLeService.ACTION_GATT_DISCONNECTED);
+        intentFilter.addAction(BluetoothLeService.ACTION_GATT_SERVICES_DISCOVERED);
+        intentFilter.addAction(BluetoothLeService.ACTION_DATA_AVAILABLE);
+        return intentFilter;
+    }
 
 
 }
